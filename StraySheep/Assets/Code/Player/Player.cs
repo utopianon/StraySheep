@@ -23,6 +23,9 @@ public class Player : MonoBehaviour
     private Vector3 velocity;
     float movementSmoothing;
 
+    // casting stuff
+    Vector2 castSize;
+
     enum SpeedLevel { slow, medium, fast };
     SpeedLevel speedLevel;
 
@@ -38,6 +41,8 @@ public class Player : MonoBehaviour
         maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpPeak;
         minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
         print("Gravity: " + gravity + " Jump Velocity: " + maxJumpVelocity);
+        
+        castSize = GameManager.GetBoxCastSize(GetComponent<BoxCollider2D>());
     }
 
     // Update is called once per frame
@@ -84,11 +89,15 @@ public class Player : MonoBehaviour
         }
 
     }
+
     void FixedUpdate()
     {
         RunnerMovement();
 
         velocity.y += gravity * Time.fixedDeltaTime;
+
+        DoDangerAndPickup();
+
         controller.Move(velocity * Time.fixedDeltaTime);
     }
 
@@ -131,6 +140,31 @@ public class Player : MonoBehaviour
         }
 
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref movementSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeInAir);
+    }
+
+    public void DoDangerAndPickup()
+    {
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, castSize, transform.eulerAngles.z, velocity.normalized, velocity.magnitude * Time.fixedDeltaTime);
+
+        bool died = false;
+
+        for (int i = 0; i < hits.Length; i++)
+        {
+            Pickup pickup = hits[i].collider.GetComponent<Pickup>();
+            if (pickup != null)
+            {
+                GameManager.GM.currentScore += pickup.score;
+                pickup.Die();
+            }
+
+            Danger danger = hits[i].collider.GetComponent<Danger>();
+            if (danger != null)
+            {
+                died = true;
+            }
+        }
+
+        if (died) enabled = false;
     }
 
 }
