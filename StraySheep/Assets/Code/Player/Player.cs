@@ -14,8 +14,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float timeToJumpPeak = .4f;
     [SerializeField] private float accelerationTimeInAir = .2f;
     [SerializeField] private float accelerationTimeGrounded = .1f;
-    [SerializeField] private float minimumVelocity;
-    [SerializeField] private float maximumVelocity;
+    [SerializeField] private float minimumVelocity = 4;
+    [SerializeField] private float maximumVelocity = 12;
 
     private float gravity;
     private float minJumpVelocity;
@@ -88,8 +88,8 @@ public class Player : MonoBehaviour
     {
         RunnerMovement();
 
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+        velocity.y += gravity * Time.fixedDeltaTime;
+        controller.Move(velocity * Time.fixedDeltaTime);
     }
 
     void StandartMovement()
