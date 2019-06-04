@@ -5,12 +5,18 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour
 {
+    [Header("Debug")]
+    public bool stationary;
+    public bool variableJumping;
+
     CharacterController controller;
     Animator anim;
 
     [SerializeField] private float moveSpeed = 6;
     [SerializeField] private float minJumpHeight = 1;
     [SerializeField] private float maxJumpHeight = 4;
+    [SerializeField] private float minJumpDist = 2;
+    [SerializeField] private float maxJumpDist = 6;
     [SerializeField] private float timeToJumpPeak = .4f;
     [SerializeField] private float accelerationTimeInAir = .2f;
     [SerializeField] private float accelerationTimeGrounded = .1f;
@@ -18,6 +24,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float maximumVelocity = 12;
 
     private float gravity;
+    private float baseGravity;
     private float minJumpVelocity;
     private float maxJumpVelocity;
     private Vector3 velocity;
@@ -40,8 +47,11 @@ public class Player : MonoBehaviour
         gravity = -(2 * maxJumpHeight / Mathf.Pow(timeToJumpPeak, 2));
         maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpPeak;
         minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
+        baseGravity = gravity;       
+
+      
         print("Gravity: " + gravity + " Jump Velocity: " + maxJumpVelocity);
-        
+
         castSize = GameManager.GetBoxCastSize(GetComponent<BoxCollider2D>());
     }
 
@@ -58,14 +68,14 @@ public class Player : MonoBehaviour
             if (speedLevel < SpeedLevel.fast)
             {
                 speedLevel++;
-                
+
             }
         }
 
         //speeding up
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            speedLevel = SpeedLevel.medium;            
+            speedLevel = SpeedLevel.medium;
         }
 
         //speeding down
@@ -73,26 +83,28 @@ public class Player : MonoBehaviour
         {
             if (speedLevel > SpeedLevel.slow)
             {
-                speedLevel--;               
+                speedLevel--;
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (variableJumping)
+            VariableJumping();
+        else
         {
-            if (controller.collisions.below)
-                velocity.y = maxJumpVelocity;
-        }
-        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.UpArrow))
-        {
-            if (velocity.y > minJumpVelocity)
-                velocity.y = minJumpVelocity;
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                if (controller.collisions.below)
+                    FastFallingJump();
+            }
         }
 
     }
 
     void FixedUpdate()
     {
-        RunnerMovement();
+        //for test
+        if (!stationary)
+            RunnerMovement();
 
         velocity.y += gravity * Time.fixedDeltaTime;
 
@@ -109,14 +121,33 @@ public class Player : MonoBehaviour
 
     }
 
-    void SpeedUp()
+    void VariableJumping()
     {
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            if (controller.collisions.below)
+                velocity.y = maxJumpVelocity;
+        }
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            if (velocity.y > minJumpVelocity)
+                velocity.y = minJumpVelocity;
+        }
+    }
+
+    void FastFallingJump()
+    {
+        //calculate gravity and velocity from wanted jump height and distance
+        maxJumpVelocity = (2 * (maxJumpHeight * velocity.x))/(maxJumpDist/2);
+        gravity = (-2 * maxJumpHeight * Mathf.Pow(velocity.x,2)) / Mathf.Pow((maxJumpDist / 2),2);
+        print("Gravity: " + gravity + " Jump Velocity: " + maxJumpVelocity);
+        velocity.y = maxJumpVelocity;
 
     }
 
-    void SpeedDown()
+    public float TimeToJumpPeak()
     {
-
+        return (maxJumpDist / 2) / velocity.x;
     }
 
     void RunnerMovement()
