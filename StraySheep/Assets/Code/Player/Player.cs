@@ -14,10 +14,13 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float moveSpeed = 6;
     [SerializeField] private float minJumpHeight = 1;
+    [SerializeField] private float medJumpHeight = 1;
     [SerializeField] private float maxJumpHeight = 4;
     [SerializeField] private float minJumpDist = 2;
+    [SerializeField] private float medJumpDist = 2;
     [SerializeField] private float maxJumpDist = 6;
     [SerializeField] private float timeToJumpPeak = .4f;
+    [SerializeField] private float jumpFallModifier = 2;
     [SerializeField] private float accelerationTimeInAir = .2f;
     [SerializeField] private float accelerationTimeGrounded = .1f;
     [SerializeField] private float minimumVelocity = 4;
@@ -28,6 +31,7 @@ public class Player : MonoBehaviour
     private float minJumpVelocity;
     private float maxJumpVelocity;
     private Vector3 velocity;
+    private bool jumping = false;
     float movementSmoothing;
 
     // casting stuff
@@ -42,14 +46,14 @@ public class Player : MonoBehaviour
         controller = GetComponent<CharacterController>();
 
         //starts with medium speed
-        speedLevel = SpeedLevel.medium;
+        speedLevel = SpeedLevel.slow;
         //calculate gravity and velocity from wanted jump height and time to peak
         gravity = -(2 * maxJumpHeight / Mathf.Pow(timeToJumpPeak, 2));
         maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpPeak;
         minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
-        baseGravity = gravity;       
+        baseGravity = gravity;
 
-      
+
         print("Gravity: " + gravity + " Jump Velocity: " + maxJumpVelocity);
 
         castSize = GameManager.GetBoxCastSize(GetComponent<BoxCollider2D>());
@@ -87,17 +91,21 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (variableJumping)
-            VariableJumping();
-        else
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+            if (controller.collisions.below)
             {
-                if (controller.collisions.below)
-                    FastFallingJump();
+                FastFallingJump();
             }
         }
-
+        if (variableJumping)
+        {
+            if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.UpArrow))
+            {
+                if (velocity.y > (maxJumpVelocity / 2))
+                    velocity.y = (maxJumpVelocity / 2);
+            }
+        }
     }
 
     void FixedUpdate()
@@ -105,6 +113,8 @@ public class Player : MonoBehaviour
         //for test
         if (!stationary)
             RunnerMovement();
+        else
+            StandartMovement();
 
         velocity.y += gravity * Time.fixedDeltaTime;
 
@@ -138,16 +148,42 @@ public class Player : MonoBehaviour
     void FastFallingJump()
     {
         //calculate gravity and velocity from wanted jump height and distance
-        maxJumpVelocity = (2 * (maxJumpHeight * velocity.x))/(maxJumpDist/2);
-        gravity = (-2 * maxJumpHeight * Mathf.Pow(velocity.x,2)) / Mathf.Pow((maxJumpDist / 2),2);
+        float jumpVelocityX;
+        float jumpHeight;
+        float jumpDist;
+
+        switch (speedLevel)
+        {
+            case SpeedLevel.slow:
+                jumpHeight = minJumpHeight;
+                jumpDist = minJumpDist;
+                jumpVelocityX = minimumVelocity;
+                break;
+            case SpeedLevel.medium:
+                jumpHeight = medJumpHeight;
+                jumpDist = medJumpDist;
+                jumpVelocityX = (minimumVelocity + maximumVelocity) / 2;
+                break;
+            case SpeedLevel.fast:
+                jumpHeight = maxJumpHeight;
+                jumpDist = maxJumpDist;
+                jumpVelocityX = maximumVelocity;
+                break;
+            default:
+                jumpHeight = (minJumpHeight + maxJumpHeight) / 2;
+                jumpDist = (minJumpDist + minJumpDist) / 2;
+                jumpVelocityX = (minimumVelocity + maximumVelocity) / 2;
+                break;
+        }
+
+        maxJumpVelocity = (2 * (jumpHeight * jumpVelocityX) / (jumpDist / 2));
+        gravity = (-2 * jumpHeight * Mathf.Pow(jumpVelocityX, 2)) / Mathf.Pow((jumpDist / 2), 2);
+        baseGravity = gravity;
         print("Gravity: " + gravity + " Jump Velocity: " + maxJumpVelocity);
+        timeToJumpPeak = (jumpDist / 2) / jumpVelocityX;
         velocity.y = maxJumpVelocity;
+        StartCoroutine(DoFallJump());
 
-    }
-
-    public float TimeToJumpPeak()
-    {
-        return (maxJumpDist / 2) / velocity.x;
     }
 
     void RunnerMovement()
@@ -196,6 +232,27 @@ public class Player : MonoBehaviour
         }
 
         if (died) enabled = false;
+    }
+
+    private IEnumerator DoFallJump()
+    {
+
+        while (velocity.y > 0)
+        {
+            Debug.Log("going up");
+            yield return null;
+        }
+        gravity = gravity * jumpFallModifier;
+        while (!controller.collisions.below)
+        {
+            Debug.Log("falling");
+            yield return null;
+
+        }
+        Debug.Log("landed");
+        gravity = baseGravity;
+        jumping = false;
+        yield return null;
     }
 
 }
