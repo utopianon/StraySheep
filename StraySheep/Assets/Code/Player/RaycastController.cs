@@ -54,7 +54,6 @@ public class RaycastController : MonoBehaviour
         horizontalRaySpacing = bounds.size.y / (horizontalRayCount - 1);
         verticalRaySpacing = bounds.size.x / (verticalRayCount - 1);
 
-
     }
 
     //stores the corners of the box collider for collision checking
