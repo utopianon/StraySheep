@@ -5,13 +5,15 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour
 {
-    [Header("Debug")]
-    public bool stationary;
+    [Header("Controller options")]
+    public bool platformerMovement;
     public bool variableJumping;
+
 
     CharacterController controller;
     Animator anim;
 
+    [Space(10f)]
     [SerializeField] private float moveSpeed = 6;
     [SerializeField] private float minJumpHeight = 1;
     [SerializeField] private float medJumpHeight = 1;
@@ -31,7 +33,6 @@ public class Player : MonoBehaviour
     private float minJumpVelocity;
     private float maxJumpVelocity;
     private Vector3 velocity;
-    private bool jumping = false;
     float movementSmoothing;
 
     // casting stuff
@@ -111,7 +112,7 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         //for test
-        if (!stationary)
+        if (!platformerMovement)
             RunnerMovement();
         else
             StandartMovement();
@@ -239,19 +240,15 @@ public class Player : MonoBehaviour
 
         while (velocity.y > 0)
         {
-            Debug.Log("going up");
             yield return null;
         }
         gravity = gravity * jumpFallModifier;
         while (!controller.collisions.below)
         {
-            Debug.Log("falling");
             yield return null;
 
         }
-        Debug.Log("landed");
-        gravity = baseGravity;
-        jumping = false;
+        gravity = baseGravity;    
         yield return null;
     }
 
