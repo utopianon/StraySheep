@@ -103,14 +103,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f15ade5611d98ac42bed71219c51aa3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationary: 0
+  variableJumping: 1
   moveSpeed: 6
-  minJumpHeight: 1
+  minJumpHeight: 2
+  medJumpHeight: 4
   maxJumpHeight: 4
-  timeToJumpPeak: 0.35
+  minJumpDist: 4.5
+  medJumpDist: 8
+  maxJumpDist: 12
+  timeToJumpPeak: 0.5
+  jumpFallModifier: 1.3
   accelerationTimeInAir: 0.2
   accelerationTimeGrounded: 0.1
-  minimumVelocity: 4
-  maximumVelocity: 10
+  minimumVelocity: 6
+  maximumVelocity: 14
 --- !u!114 &2026749669952484408
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -31,6 +31,7 @@ public class CharacterController : RaycastController
         if (velocity.y != 0)
             VerticalCollisions(ref velocity);
 
+        
         transform.Translate(velocity);
 
         if (standingOnPlatform)

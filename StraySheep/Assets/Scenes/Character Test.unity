@@ -1322,7 +1322,7 @@ MonoBehaviour:
   lookAheadDistX: 1
   lookSmoothTimeX: 0.2
   verticalSmoothTime: 0.2
-  focusAreaSize: {x: 1.5, y: 5}
+  focusAreaSize: {x: 1.5, y: 6}
 --- !u!1 &1995067176
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,6 +1817,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6340605515126903217, guid: 633d01b45cebaf84ca1f959586422837,
+        type: 3}
+      propertyPath: stationary
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 633d01b45cebaf84ca1f959586422837, type: 3}
