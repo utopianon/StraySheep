@@ -26,18 +26,19 @@ public class CameraFollow : MonoBehaviour
 
     private void LateUpdate()
     {
-        focusArea.Update(target.collider.bounds);
+        focusArea.UpdateFocusArea(target.collider.bounds);
 
         Vector2 focusPosition = focusArea.centre + Vector2.up * verticalOffset;
 
         if (focusArea.velocity.x != 0)
         {
             lookAheadDirectionX = Mathf.Sign(focusArea.velocity.x);
-        }
+        }     
 
         targetLookAheadX = lookAheadDirectionX * lookAheadDistX;
         currentLookAheadX = Mathf.SmoothDamp(currentLookAheadX, targetLookAheadX, ref smoothLookVelocityX, lookSmoothTimeX);
 
+        focusPosition.y = Mathf.SmoothDamp(transform.position.y, focusPosition.y, ref smoothVelocityY, verticalSmoothTime);
         focusPosition += Vector2.right * currentLookAheadX;
 
         transform.position = (Vector3)focusPosition + Vector3.forward * -10;
@@ -65,7 +66,7 @@ public class CameraFollow : MonoBehaviour
             centre = new Vector2((left + right) / 2, (top + bottom) / 2);
         }
 
-        public void Update(Bounds targetBounds)
+        public void UpdateFocusArea(Bounds targetBounds)
         {
             float shiftX = 0;
             if (targetBounds.min.x < left)
