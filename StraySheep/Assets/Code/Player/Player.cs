@@ -232,7 +232,11 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (died) enabled = false;
+        if (died)
+        {
+            enabled = false;
+            GameManager.GM.EndScreen();
+        }
     }
 
     private IEnumerator DoFallJump()
