@@ -117,11 +117,12 @@ public class Player : MonoBehaviour
         else
             StandartMovement();
 
-        velocity.y += gravity * Time.fixedDeltaTime;
+        velocity.y += gravity * Time.deltaTime;
 
         DoDangerAndPickup();
 
-        controller.Move(velocity * Time.fixedDeltaTime);
+        controller.Move(velocity * Time.deltaTime);
+
     }
 
     void StandartMovement()
@@ -180,7 +181,6 @@ public class Player : MonoBehaviour
         maxJumpVelocity = (2 * (jumpHeight * jumpVelocityX) / (jumpDist / 2));
         gravity = (-2 * jumpHeight * Mathf.Pow(jumpVelocityX, 2)) / Mathf.Pow((jumpDist / 2), 2);
         baseGravity = gravity;
-        print("Gravity: " + gravity + " Jump Velocity: " + maxJumpVelocity);
         timeToJumpPeak = (jumpDist / 2) / jumpVelocityX;
         velocity.y = maxJumpVelocity;
         StartCoroutine(DoFallJump());
@@ -252,7 +252,7 @@ public class Player : MonoBehaviour
             yield return null;
 
         }
-        gravity = baseGravity;    
+        gravity = baseGravity;
         yield return null;
     }
 
