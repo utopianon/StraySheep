@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using FMODUnity;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,6 +34,29 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _sliders = FindObjectsOfType<Slider>();
+
+        // make fmod event and set parameter value(s)
+        levelMusic = RuntimeManager.CreateInstance("event:/Music/LevelTheme/LevelTheme");
+        levelMusic.setParameterValue("GamePause", 1);
+        levelMusic.start();
+    }
+
+    FMOD.Studio.EventInstance levelMusic;
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            // setting parameter value used to filter music
+            levelMusic.setParameterValue("GamePause", 0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            levelMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
+
     }
 
     #region Static methods

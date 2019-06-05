@@ -5288,6 +5288,9 @@ GameObject:
   - component: {fileID: 1959277662}
   - component: {fileID: 1959277661}
   - component: {fileID: 1959277664}
+  - component: {fileID: 1959277666}
+  - component: {fileID: 1959277665}
+  - component: {fileID: 1959277667}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5302,7 +5305,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1959277660}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1959277662
 Camera:
   m_ObjectHideFlags: 0
@@ -5378,6 +5381,71 @@ MonoBehaviour:
   lookSmoothTimeX: 0.1
   verticalSmoothTime: 0.2
   focusAreaSize: {x: 3, y: 4}
+--- !u!114 &1959277665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959277660}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/Music/LevelTheme/LevelTheme
+  PlayEvent: 11
+  StopEvent: 12
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: GamePause
+    Value: 1
+  - Name: PlayerHealth
+    Value: 1
+  - Name: Speed
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!114 &1959277666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959277660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: 0
+--- !u!114 &1959277667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959277660}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 744a208c85da6d04c861d81b992e4ead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Emitters:
+  - Target: {fileID: 1959277665}
+    Params:
+    - Name: Speed
+      Value: 0
+    - Name: PlayerHealth
+      Value: 1
+    - Name: GamePause
+      Value: 1
+  TriggerEvent: 0
+  CollisionTag: 
 --- !u!1 &2017267147
 GameObject:
   m_ObjectHideFlags: 0
