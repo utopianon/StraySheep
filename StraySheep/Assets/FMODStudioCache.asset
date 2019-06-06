@@ -59,10 +59,26 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 4601947474775188591}
+  - {fileID: 3331124336238835940}
   MinDistance: 0
   MaxDistance: 0
   Length: 74000
+--- !u!114 &-8660554147633568679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: PlayerHealth
+  Min: 0
+  Max: 1
+  Default: 1
 --- !u!114 &-8533575151606727302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,6 +95,38 @@ MonoBehaviour:
   Min: 0
   Max: 100
   Default: 0
+--- !u!114 &-8117104625362115922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: GamePause
+  Min: 0
+  Max: 1
+  Default: 1
+--- !u!114 &-8080597845206029671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: GamePause
+  Min: 0
+  Max: 1
+  Default: 1
 --- !u!114 &-8019825024264321999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,12 +140,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: /Volumes/LaCie/FMOD/LambRun/Build/Desktop/Master Bank.strings.bank
-  lastModified: 636953391460000000
+  lastModified: 636954257430000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1758
+    Value: 1804
   Exists: 1
+--- !u!114 &-7992613516442779424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Speed
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &-7865130030938271471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +178,63 @@ MonoBehaviour:
   Min: 0
   Max: 100
   Default: 100
+--- !u!114 &-7686738253410552602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: PlayerHealth
+  Min: 0
+  Max: 1
+  Default: 1
+--- !u!114 &-7407435160476025583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/LevelTheme/LevelThemeViral
+  guid: 098fa851ef5f8d44bf0cdd82e0613235
+  Banks:
+  - {fileID: 1671216729428623969}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -7016007230596747456}
+  - {fileID: 4399686383119496862}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 169200
+--- !u!114 &-7368246392909567093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Speed
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &-7227928130930467698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +258,22 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 162909
+--- !u!114 &-7016007230596747456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Speed
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &-7008839845835876378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +352,38 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 1
+--- !u!114 &-5818339953399044775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: PlayerHealth
+  Min: 0
+  Max: 1
+  Default: 1
+--- !u!114 &-5670021231746123515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Speed
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &-5267627212624443362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,6 +533,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 1
+--- !u!114 &-2362337614277981943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: GamePause
+  Min: 0
+  Max: 1
+  Default: 1
 --- !u!114 &-2166822448757886188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,6 +588,22 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 362
+--- !u!114 &-1319327999058417806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: GamePause
+  Min: 0
+  Max: 1
+  Default: 1
 --- !u!114 &-1116690703254400065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,9 +672,9 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -2832057101104319238}
-  - {fileID: -4162564272637855417}
-  - {fileID: 244153979332493539}
+  - {fileID: -2362337614277981943}
+  - {fileID: -8660554147633568679}
+  - {fileID: -7368246392909567093}
   MinDistance: 0
   MaxDistance: 0
   Length: 28000
@@ -511,9 +712,10 @@ MonoBehaviour:
   - {fileID: -7008839845835876378}
   - {fileID: 2579889868558560556}
   - {fileID: -7227928130930467698}
+  - {fileID: -7407435160476025583}
   MasterBankRef: {fileID: 1671216729428623969}
   StringsBankRef: {fileID: -8019825024264321999}
-  stringsBankWriteTime: 636953391460000000
+  stringsBankWriteTime: 636954257430000000
   cacheVersion: 2
 --- !u!114 &244153979332493539
 MonoBehaviour:
@@ -554,6 +756,22 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 362
+--- !u!114 &1285818855774269966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Speed
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &1633719497959916367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,11 +808,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: /Volumes/LaCie/FMOD/LambRun/Build/Desktop/Master Bank.bank
-  lastModified: 636953391460000000
+  lastModified: 636954257430000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 9400832
+    Value: 13623264
   Exists: 1
 --- !u!114 &1726039959541304077
 MonoBehaviour:
@@ -720,6 +938,54 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 476
+--- !u!114 &3251716197810371357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Speed
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &3331124336238835940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Speed
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &3578554998062449189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Speed
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &3845707702862480686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -759,6 +1025,22 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 117
+--- !u!114 &4399686383119496862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: GamePause
+  Min: 0
+  Max: 1
+  Default: 1
 --- !u!114 &4416981978805088090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -860,3 +1142,35 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1629
+--- !u!114 &8827016353589026264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: GamePause
+  Min: 0
+  Max: 1
+  Default: 1
+--- !u!114 &8965465775352785861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Speed
+  Min: 0
+  Max: 1
+  Default: 0
