@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     private float maxJumpVelocity;
     private Vector3 velocity;
     float movementSmoothing;
+    bool died = false;
 
     // casting stuff
     Vector2 castSize;
@@ -63,48 +64,52 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (controller.collisions.above || controller.collisions.below)
+        Debug.Log("grounded is " + controller.collisions.below);
+        if (!died)
         {
-            velocity.y = 0;
-        }
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            if (speedLevel < SpeedLevel.fast)
+            if (controller.collisions.above || controller.collisions.below)
             {
-                speedLevel++;
-
+                velocity.y = 0;
             }
-        }
 
-        //speeding up
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            speedLevel = SpeedLevel.medium;
-        }
-
-        //speeding down
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            if (speedLevel > SpeedLevel.slow)
+            if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                speedLevel--;
+                if (speedLevel < SpeedLevel.fast)
+                {
+                    speedLevel++;
+
+                }
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            if (controller.collisions.below)
+            //speeding up
+            if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                FastFallingJump();
+                speedLevel = SpeedLevel.medium;
             }
-        }
-        if (variableJumping)
-        {
-            if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.UpArrow))
+
+            //speeding down
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                if (velocity.y > (maxJumpVelocity / 2))
-                    velocity.y = (maxJumpVelocity / 2);
+                if (speedLevel > SpeedLevel.slow)
+                {
+                    speedLevel--;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                if (controller.collisions.below)
+                {
+                    FastFallingJump();
+                }
+            }
+            if (variableJumping)
+            {
+                if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.UpArrow))
+                {
+                    if (velocity.y > (maxJumpVelocity / 2))
+                        velocity.y = (maxJumpVelocity / 2);
+                }
             }
         }
     }
@@ -214,7 +219,7 @@ public class Player : MonoBehaviour
     {
         RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, castSize, transform.eulerAngles.z, velocity.normalized, velocity.magnitude * Time.fixedDeltaTime);
 
-        bool died = false;
+
 
         for (int i = 0; i < hits.Length; i++)
         {
@@ -234,7 +239,8 @@ public class Player : MonoBehaviour
 
         if (died)
         {
-            enabled = false;
+            //enabled = false;
+            controller.colliding = false;
             GameManager.GM.EndScreen();
         }
     }
