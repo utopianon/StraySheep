@@ -9,11 +9,14 @@ public class CharacterController : RaycastController
     [SerializeField] private float maxSlopeAngle = 80;
     [SerializeField] private float maxDescendAngle = 75;
 
+    public bool colliding;
+
     public CollisionInfo collisions;
 
     public override void Start()
     {
         base.Start();
+        colliding = true;
     }
 
     public void Move(Vector3 velocity, bool standingOnPlatform = false)
@@ -26,9 +29,10 @@ public class CharacterController : RaycastController
         {
             DescendSlope(ref velocity);
         }
-        if (velocity.x != 0)
+
+        if (velocity.x != 0 && colliding)
             HorizontalCollisions(ref velocity);
-        if (velocity.y != 0)
+        if (velocity.y != 0 && colliding)
             VerticalCollisions(ref velocity);
 
         

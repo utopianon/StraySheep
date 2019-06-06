@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     const string SOUND_STR = "Sound", MUSIC_STR = "Music";
 
     public static GameManager GM;
+    public CameraFollow camera;
 
     // audio
     private float _soundNoice, _musicNoice;
@@ -54,10 +55,15 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (!camera)
+        {
+            camera = Camera.main.GetComponent<CameraFollow>();
+        }
+
         // pause toggle
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (_mainMenu.activeSelf || _endMenu.activeSelf)
+            if (_mainMenu.activeSelf )//|| _endMenu.activeSelf)
             {
                 // ignore
             }
@@ -67,6 +73,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+       
 
     #region Static methods
 
@@ -89,7 +96,9 @@ public class GameManager : MonoBehaviour
 
     public void EndScreen()
     {
+        Time.timeScale = 0.75f;
         _endMenu.SetActive(true);
+        camera.DeathCamera();
         _endMenu.transform.GetChild(SCORE_TEXT).GetComponent<TMPro.TextMeshProUGUI>().text = " " + currentScore;
 
         // TODO: level end music
@@ -129,7 +138,7 @@ public class GameManager : MonoBehaviour
         }
         _pauseMenu.SetActive(false);
         _endMenu.SetActive(false);
-
+        Time.timeScale = 1;
         currentScore = 0;
     }
 
