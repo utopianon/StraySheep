@@ -26,7 +26,7 @@ public class CameraFollow : MonoBehaviour
 
     private void LateUpdate()
     {
-        focusArea.Update(target.collider.bounds);
+        focusArea.UpdateFocusArea(target.collider.bounds);
 
         Vector2 focusPosition = focusArea.centre + Vector2.up * verticalOffset;
 
@@ -66,7 +66,7 @@ public class CameraFollow : MonoBehaviour
             centre = new Vector2((left + right) / 2, (top + bottom) / 2);
         }
 
-        public void Update(Bounds targetBounds)
+        public void UpdateFocusArea(Bounds targetBounds)
         {
             float shiftX = 0;
             if (targetBounds.min.x < left)
