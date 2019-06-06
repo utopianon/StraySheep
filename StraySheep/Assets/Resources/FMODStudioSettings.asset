@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: /Volumes/LaCie/FMOD/LambRun/LambRun.fspro
-  SourceProjectPathUnformatted: /Volumes/LaCie/FMOD/LambRun/LambRun.fspro
-  SourceBankPathUnformatted: /Volumes/LaCie/FMOD/LambRun/Build
+  sourceProjectPath: LambRun/LambRun.fspro
+  SourceProjectPathUnformatted: LambRun/LambRun.fspro
+  SourceBankPathUnformatted: LambRun/Build
   AutomaticEventLoading: 1
   AutomaticSampleLoading: 0
   ImportType: 0
