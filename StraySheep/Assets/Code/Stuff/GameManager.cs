@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using FMODUnity;
+using FMOD.Studio;
 
 public class GameManager : MonoBehaviour
 {
     const int CANVAS = 0, MAINMENU = 0, PAUSEMENU = 1, ENDMENU = 2, SCORE_TEXT = 2;
-    const string SOUND_STR = "Sound", MUSIC_STR = "Music";
+    const string SOUND_STR = "Sound", MUSIC_STR = "Music", SPEED_STR = "Speed", WIN_STR = "Victory", PAUSE_STR = "GamePause";
 
     public static GameManager GM;
-    public CameraFollow camera;
+    public CameraFollow levelCamera;
 
     // audio
     private float _soundNoice, _musicNoice;
     private Slider[] _sliders;
+    private EventInstance _menuMusic, _levelMusic;
+    private VCA _musicVCA, _soundVCA;
 
     // scoring
     [HideInInspector] public int currentScore;
@@ -40,30 +44,44 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        // sliders
         _sliders = GetComponentsInChildren<Slider>(includeInactive: true);
         _soundNoice = PlayerPrefs.GetFloat(SOUND_STR, 0.6f);
         UpdateSliders(false, SOUND_STR);
         _musicNoice = PlayerPrefs.GetFloat(MUSIC_STR, 0.4f);
         UpdateSliders(true, MUSIC_STR);
 
+        // menu
         _mainMenu = transform.GetChild(CANVAS).GetChild(MAINMENU).gameObject;
         _pauseMenu = transform.GetChild(CANVAS).GetChild(PAUSEMENU).gameObject;
         _endMenu = transform.GetChild(CANVAS).GetChild(ENDMENU).gameObject;
 
-        _mainMenu.SetActive(SceneManager.GetActiveScene().buildIndex == MAINMENU);
+        // music
+        _menuMusic = RuntimeManager.CreateInstance("event:/Music/MainMenu/MainMenuSong");
+        _levelMusic = RuntimeManager.CreateInstance("event:/Music/LevelTheme/LevelThemeViral");
+
+        // vca (fmod)
+        _musicVCA = RuntimeManager.GetVCA("vca:/Music");
+        //_soundVCA = RuntimeManager.GetVCA("vca:/");
+
+        if (SceneManager.GetActiveScene().buildIndex == MAINMENU)
+        {
+            _mainMenu.SetActive(true);
+            _menuMusic.start();
+        }
+        else
+        {
+            _mainMenu.SetActive(false);
+            _levelMusic.start();
+        }
     }
 
     private void Update()
     {
-        if (!camera)
-        {
-            camera = Camera.main.GetComponent<CameraFollow>();
-        }
-
         // pause toggle
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (_mainMenu.activeSelf )//|| _endMenu.activeSelf)
+            if (_mainMenu.activeSelf || _endMenu.activeSelf)
             {
                 // ignore
             }
@@ -73,7 +91,6 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-       
 
     #region Static methods
 
@@ -90,18 +107,26 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         _pauseMenu.SetActive(true);
-
-        // TODO: muffle level music
+        
+        _levelMusic.setParameterValue(PAUSE_STR, 0);
     }
 
-    public void EndScreen()
+    public void EndScreen(bool win)
     {
         Time.timeScale = 0.75f;
         _endMenu.SetActive(true);
-        camera.DeathCamera();
-        _endMenu.transform.GetChild(SCORE_TEXT).GetComponent<TMPro.TextMeshProUGUI>().text = " " + currentScore;
+        levelCamera.DeathCamera();
 
-        // TODO: level end music
+        if (win)
+        {
+            _endMenu.transform.GetChild(SCORE_TEXT).GetComponent<TMPro.TextMeshProUGUI>().text = " " + currentScore;
+            _levelMusic.setParameterValue(WIN_STR, 1);
+        }
+        else
+        {
+            _endMenu.transform.GetChild(SCORE_TEXT).GetComponent<TMPro.TextMeshProUGUI>().text = " D:";
+            _levelMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
     }
 
     #endregion
@@ -113,7 +138,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         _pauseMenu.SetActive(false);
 
-        // TODO: unmuffle level music
+        _levelMusic.setParameterValue(PAUSE_STR, 1);
     }
 
     public void ReloadActiveScene()
@@ -128,23 +153,27 @@ public class GameManager : MonoBehaviour
         if (buildIndex == MAINMENU)
         {
             _mainMenu.SetActive(true);
-            // TODO: play menu music
+            _levelMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            _menuMusic.start();
         }
         else
         {
             _mainMenu.SetActive(false);
-            // TODO: restart level music ?
-            // + we can play different level musics if wanted
+            _menuMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            _levelMusic.start();
         }
+
         _pauseMenu.SetActive(false);
         _endMenu.SetActive(false);
+
         Time.timeScale = 1;
         currentScore = 0;
     }
 
     public void ExitGame()
     {
-        // TODO: Clear FMOD cache
+        _menuMusic.release();
+        _levelMusic.release();
 
         Application.Quit();
     }
@@ -162,6 +191,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat(SOUND_STR, _soundNoice);
 
         // TODO: set volume to FMOD VDA
+        
     }
 
     public void MusicVolume(Slider slider)
@@ -171,8 +201,8 @@ public class GameManager : MonoBehaviour
         UpdateSliders(true, slider.name);
 
         PlayerPrefs.SetFloat(MUSIC_STR, _musicNoice);
-
-        // TODO: set volume to FMOD VDA
+        
+        _musicVCA.setVolume(_musicNoice);
     }
 
     private void UpdateSliders(bool isMusic, string name)
@@ -186,6 +216,25 @@ public class GameManager : MonoBehaviour
             else if (!isMusic && s.name == name)
                 s.value = _soundNoice;
         }
+    }
+
+    #endregion
+
+    #region UI sounds
+
+    public void PlayBackwardsButton()
+    {
+        RuntimeManager.PlayOneShot("event:/MainMenu/MenuSelectBack", transform.position);
+    }
+
+    public void PlayForwardsButton()
+    {
+        RuntimeManager.PlayOneShot("event:/MainMenu/MenuSelectIn", transform.position);
+    }
+
+    public void PlaySliderSound()
+    {
+        RuntimeManager.PlayOneShot("event:/MainMenu/Scroll", transform.position);
     }
 
     #endregion
