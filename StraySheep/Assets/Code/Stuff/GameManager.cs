@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     const int CANVAS = 0, MAINMENU = 0, PAUSEMENU = 1, ENDMENU = 2, SCORE_TEXT = 2;
+    const string SOUND_STR = "Sound", MUSIC_STR = "Music";
 
     public static GameManager GM;
     public CameraFollow camera;
@@ -40,6 +41,10 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _sliders = GetComponentsInChildren<Slider>(includeInactive: true);
+        _soundNoice = PlayerPrefs.GetFloat(SOUND_STR, 0.6f);
+        UpdateSliders(false, SOUND_STR);
+        _musicNoice = PlayerPrefs.GetFloat(MUSIC_STR, 0.4f);
+        UpdateSliders(true, MUSIC_STR);
 
         _mainMenu = transform.GetChild(CANVAS).GetChild(MAINMENU).gameObject;
         _pauseMenu = transform.GetChild(CANVAS).GetChild(PAUSEMENU).gameObject;
@@ -154,6 +159,8 @@ public class GameManager : MonoBehaviour
 
         UpdateSliders(false, slider.name);
 
+        PlayerPrefs.SetFloat(SOUND_STR, _soundNoice);
+
         // TODO: set volume to FMOD VDA
     }
 
@@ -162,6 +169,8 @@ public class GameManager : MonoBehaviour
         _musicNoice = slider.value;
 
         UpdateSliders(true, slider.name);
+
+        PlayerPrefs.SetFloat(MUSIC_STR, _musicNoice);
 
         // TODO: set volume to FMOD VDA
     }
