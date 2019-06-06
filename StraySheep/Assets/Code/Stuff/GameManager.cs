@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         _sliders = FindObjectsOfType<Slider>();
 
         // make fmod event and set parameter value(s)
-        levelMusic = RuntimeManager.CreateInstance("event:/Music/LevelTheme/LevelTheme");
+        levelMusic = RuntimeManager.CreateInstance("event:/Music/LevelTheme/LevelThemeViral");
         levelMusic.setParameterValue("GamePause", 1);
         levelMusic.start();
     }
