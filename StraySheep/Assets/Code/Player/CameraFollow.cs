@@ -11,6 +11,7 @@ public class CameraFollow : MonoBehaviour
     public float verticalSmoothTime;
     public Vector2 focusAreaSize;
 
+
     FocusArea focusArea;
 
     float currentLookAheadX;
@@ -18,35 +19,60 @@ public class CameraFollow : MonoBehaviour
     float lookAheadDirectionX;
     float smoothLookVelocityX;
     float smoothVelocityY;
+    bool following;
 
     private void Start()
     {
         focusArea = new FocusArea(target.collider.bounds, focusAreaSize);
+        following = true;
     }
 
+    private void Update()
+    {
+
+    }
     private void LateUpdate()
     {
-        focusArea.Update(target.collider.bounds);
-
-        Vector2 focusPosition = focusArea.centre + Vector2.up * verticalOffset;
-
-        if (focusArea.velocity.x != 0)
+        if (following)
         {
-            lookAheadDirectionX = Mathf.Sign(focusArea.velocity.x);
-        }     
+            focusArea.UpdateFocusArea(target.collider.bounds);
 
-        targetLookAheadX = lookAheadDirectionX * lookAheadDistX;
-        currentLookAheadX = Mathf.SmoothDamp(currentLookAheadX, targetLookAheadX, ref smoothLookVelocityX, lookSmoothTimeX);
+            Vector2 focusPosition = focusArea.centre + Vector2.up * verticalOffset;
 
-        focusPosition.y = Mathf.SmoothDamp(transform.position.y, focusPosition.y, ref smoothVelocityY, verticalSmoothTime);
-        focusPosition += Vector2.right * currentLookAheadX;
+            if (focusArea.velocity.x != 0)
+            {
+                lookAheadDirectionX = Mathf.Sign(focusArea.velocity.x);
+            }
 
-        transform.position = (Vector3)focusPosition + Vector3.forward * -10;
+            targetLookAheadX = lookAheadDirectionX * lookAheadDistX;
+            currentLookAheadX = Mathf.SmoothDamp(currentLookAheadX, targetLookAheadX, ref smoothLookVelocityX, lookSmoothTimeX);
+
+            focusPosition.y = Mathf.SmoothDamp(transform.position.y, focusPosition.y, ref smoothVelocityY, verticalSmoothTime);
+            focusPosition += Vector2.right * currentLookAheadX;
+
+            transform.position = (Vector3)focusPosition + Vector3.forward * -10;
+        }
     }
     private void OnDrawGizmos()
     {
         Gizmos.color = new Color(1, 0, 0, .5f);
         Gizmos.DrawCube(focusArea.centre, focusAreaSize);
+    }
+
+    public void DeathCamera()
+    {
+        StartCoroutine(StopFollowingWithDelay(.5f));
+    }
+
+    IEnumerator StopFollowingWithDelay(float delay)
+    {
+        float timer = 0;
+        while (timer < delay)
+        {
+            timer += Time.unscaledDeltaTime;
+            yield return null;
+        }
+        following = false;
     }
     struct FocusArea
     {
@@ -66,7 +92,7 @@ public class CameraFollow : MonoBehaviour
             centre = new Vector2((left + right) / 2, (top + bottom) / 2);
         }
 
-        public void Update(Bounds targetBounds)
+        public void UpdateFocusArea(Bounds targetBounds)
         {
             float shiftX = 0;
             if (targetBounds.min.x < left)
@@ -95,5 +121,6 @@ public class CameraFollow : MonoBehaviour
             velocity = new Vector2(shiftX, shiftY);
 
         }
+
     }
 }
