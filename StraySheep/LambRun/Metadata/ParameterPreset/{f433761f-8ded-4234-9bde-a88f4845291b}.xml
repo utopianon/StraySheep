@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="ParameterPreset" id="{f433761f-8ded-4234-9bde-a88f4845291b}">
+        <property name="name">
+            <value>SpeedFoley</value>
+        </property>
+        <relationship name="folder">
+            <destination>{05845c61-b582-42b3-a930-6dcc46ec49eb}</destination>
+        </relationship>
+        <relationship name="parameter">
+            <destination>{63c54d0b-cbd2-4b08-95c0-a99cfa3dd3dd}</destination>
+        </relationship>
+    </object>
+    <object class="GameParameter" id="{63c54d0b-cbd2-4b08-95c0-a99cfa3dd3dd}">
+        <property name="maximum">
+            <value>100</value>
+        </property>
+        <property name="initialValue">
+            <value>0</value>
+        </property>
+    </object>
+</objects>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{a7b86c66-4bf1-484c-a5a2-1eb9a6b0f85d}">
+        <property name="assetPath">
+            <value>70 Wind Violent Storm, Very Strong Gusts.wav</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>94.74666666666667</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{a0076af6-af31-40ff-8146-2c2b7b3aef6b}</destination>
+        </relationship>
+    </object>
+</objects>
