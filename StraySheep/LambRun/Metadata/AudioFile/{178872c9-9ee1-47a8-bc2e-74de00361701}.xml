@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{178872c9-9ee1-47a8-bc2e-74de00361701}">
+        <property name="assetPath">
+            <value>Stress_Orchestra_StringMelody_Seg2_01.wav</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>24</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>24.000041666666668</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{a0076af6-af31-40ff-8146-2c2b7b3aef6b}</destination>
+        </relationship>
+    </object>
+</objects>
