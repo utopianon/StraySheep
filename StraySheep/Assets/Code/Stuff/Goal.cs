@@ -17,7 +17,7 @@ public class Goal : MonoBehaviour
     {
         if (_player.position.x >= transform.position.x + offset.x)
         {
-            GameManager.GM.EndScreen();
+            GameManager.GM.EndScreen(true);
             // TODO: animations and audio
         }
     }
