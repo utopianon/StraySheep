@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     // scoring
     [HideInInspector] public int currentScore;
-    //[HideInInspector] public float levelTimer, distance;
+    [HideInInspector] public float distanceScore;//levelTimer, distance;
 
     // menu & UI
     private GameObject _mainMenu, _pauseMenu, _endMenu;
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
 
         // vca (fmod)
         _musicVCA = RuntimeManager.GetVCA("vca:/Music");
-        //_soundVCA = RuntimeManager.GetVCA("vca:/");
+        _soundVCA = RuntimeManager.GetVCA("vca:/PlayerSounds");
 
         if (SceneManager.GetActiveScene().buildIndex == MAINMENU)
         {
@@ -235,6 +235,11 @@ public class GameManager : MonoBehaviour
     public void PlaySliderSound()
     {
         RuntimeManager.PlayOneShot("event:/MainMenu/Scroll", transform.position);
+    }
+
+    public void UpdateMusicSpeed(int playerSpeed)
+    {
+        _levelMusic.setParameterValue(SPEED_STR, playerSpeed * 0.5f);
     }
 
     #endregion

@@ -38,6 +38,8 @@ public class Player : MonoBehaviour
     private float maxJumpVelocity;
     private Vector3 velocity;
     float movementSmoothing;
+    
+    private float _oldX, _deathValueX = 0.0001f;
     bool died = false;
 
     // casting stuff
@@ -68,7 +70,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Debug.Log("grounded is " + controller.collisions.below);
+        //Debug.Log("grounded is " + controller.collisions.below);
         if (!died)
         {
             if (controller.collisions.above || controller.collisions.below)
@@ -110,10 +112,8 @@ public class Player : MonoBehaviour
                 }
             }
         }
-    }
 
-    void FixedUpdate()
-    {
+
         //for test
         if (!platformerMovement)
             RunnerMovement();
@@ -124,22 +124,27 @@ public class Player : MonoBehaviour
 
         DoDangerAndPickup();
 
+        _oldX = transform.position.x;
         controller.Move(velocity * Time.deltaTime);
+        if (transform.position.x - _oldX < _deathValueX) Die();
 
+        GameManager.GM.distanceScore += (transform.position.x - _oldX) * (int)speedLevel;
     }
 
     void SpeedUp()
     {
+        //TODO
         //set rain vector
-        //change music parameter
         speedLevel++;
+        GameManager.GM.UpdateMusicSpeed((int)speedLevel);
     }
 
     void SpeedDown()
     {
+        //TODO
         //set rain vector
-        //change music parameter
         speedLevel--;
+        GameManager.GM.UpdateMusicSpeed((int)speedLevel);
     }
 
     void StandartMovement()
@@ -230,9 +235,7 @@ public class Player : MonoBehaviour
     public void DoDangerAndPickup()
     {
         RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, castSize, transform.eulerAngles.z, velocity.normalized, velocity.magnitude * Time.fixedDeltaTime);
-
-
-
+        
         for (int i = 0; i < hits.Length; i++)
         {
             Pickup pickup = hits[i].collider.GetComponent<Pickup>();
@@ -249,12 +252,13 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (died)
-        {
-            //enabled = false;
-            controller.colliding = false;
-            GameManager.GM.EndScreen(false);
-        }
+        if (died) Die();
+    }
+
+    void Die()
+    {
+        controller.colliding = false;
+        GameManager.GM.EndScreen(false);
     }
 
     private IEnumerator DoFallJump()
