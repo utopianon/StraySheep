@@ -175,6 +175,7 @@ public class CharacterController : RaycastController
             collisions.below = true;
             collisions.climbingSlope = true;
             collisions.slopeAngle = slopeAngle;
+
         }
 
     }

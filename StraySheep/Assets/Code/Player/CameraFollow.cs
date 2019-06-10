@@ -30,13 +30,13 @@ public class CameraFollow : MonoBehaviour
 
     private void Update()
     {
+            focusArea.UpdateFocusArea(target.collider.bounds);
 
     }
     private void LateUpdate()
     {
         if (following)
         {
-            focusArea.UpdateFocusArea(target.collider.bounds);
 
             Vector2 focusPosition = focusArea.centre + Vector2.up * verticalOffset;
 

@@ -110,10 +110,7 @@ public class Player : MonoBehaviour
                 }
             }
         }
-    }
 
-    void FixedUpdate()
-    {
         //for test
         if (!platformerMovement)
             RunnerMovement();
@@ -125,6 +122,11 @@ public class Player : MonoBehaviour
         DoDangerAndPickup();
 
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    void FixedUpdate()
+    {
+     
 
     }
 
