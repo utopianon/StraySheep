@@ -28,6 +28,10 @@ public class Player : MonoBehaviour
     [SerializeField] private float minimumVelocity = 4;
     [SerializeField] private float maximumVelocity = 12;
 
+    [SerializeField] private Vector3 rainDirectionSlow, rainDirectionMedium, rainDirectionFast;
+    public ParticleSystem rainPS;
+ 
+
     private float gravity;
     private float baseGravity;
     private float minJumpVelocity;
@@ -76,23 +80,17 @@ public class Player : MonoBehaviour
             {
                 if (speedLevel < SpeedLevel.fast)
                 {
-                    speedLevel++;
+                    SpeedUp();                    
 
                 }
-            }
-
-            //speeding up
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                speedLevel = SpeedLevel.medium;
-            }
+            }        
 
             //speeding down
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 if (speedLevel > SpeedLevel.slow)
                 {
-                    speedLevel--;
+                    SpeedDown();
                 }
             }
 
@@ -128,6 +126,20 @@ public class Player : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
+    }
+
+    void SpeedUp()
+    {
+        //set rain vector
+        //change music parameter
+        speedLevel++;
+    }
+
+    void SpeedDown()
+    {
+        //set rain vector
+        //change music parameter
+        speedLevel--;
     }
 
     void StandartMovement()
