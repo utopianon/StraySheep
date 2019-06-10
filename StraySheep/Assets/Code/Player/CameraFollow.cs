@@ -10,8 +10,7 @@ public class CameraFollow : MonoBehaviour
     public float lookSmoothTimeX;
     public float verticalSmoothTime;
     public Vector2 focusAreaSize;
-
-
+    
     FocusArea focusArea;
 
     float currentLookAheadX;
@@ -25,6 +24,8 @@ public class CameraFollow : MonoBehaviour
     {
         focusArea = new FocusArea(target.collider.bounds, focusAreaSize);
         following = true;
+
+        GameManager.GM.levelCamera = this;
     }
 
     private void Update()

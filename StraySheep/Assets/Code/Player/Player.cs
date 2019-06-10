@@ -253,7 +253,7 @@ public class Player : MonoBehaviour
         {
             //enabled = false;
             controller.colliding = false;
-            GameManager.GM.EndScreen();
+            GameManager.GM.EndScreen(false);
         }
     }
 
