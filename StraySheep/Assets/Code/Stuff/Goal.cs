@@ -19,6 +19,9 @@ public class Goal : MonoBehaviour
         {
             GameManager.GM.EndScreen(true);
             // TODO: animations and audio
+
+            // bug fix: not forcing endscreen to be visible :D
+            enabled = false;
         }
     }
 

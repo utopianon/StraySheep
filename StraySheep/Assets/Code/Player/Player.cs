@@ -39,6 +39,8 @@ public class Player : MonoBehaviour
     private float maxJumpVelocity;
     private Vector3 velocity;
     float movementSmoothing;
+    
+    private float _oldX, _deathValueX = 0.0001f;
     bool died = false;
 
     // casting stuff
@@ -121,29 +123,29 @@ public class Player : MonoBehaviour
 
         DoDangerAndPickup();
 
+        _oldX = transform.position.x;
         controller.Move(velocity * Time.deltaTime);
-    }
+        if (transform.position.x - _oldX < _deathValueX) Die();
 
-    void FixedUpdate()
-    {
-     
-
+        GameManager.GM.distanceScore += (transform.position.x - _oldX) * (int)speedLevel;
     }
 
     void SpeedUp()
     {
+        //TODO
         //set rain vector
-        //change music parameter
         speedLevel++;
+        GameManager.GM.UpdateMusicSpeed((int)speedLevel);
         anim.SetFloat("animSpeed", (float)speedLevel + 1);
         rainController.SetAngle((float)speedLevel);
     }
 
     void SpeedDown()
     {
+        //TODO
         //set rain vector
-        //change music parameter
         speedLevel--;
+        GameManager.GM.UpdateMusicSpeed((int)speedLevel);
         anim.SetFloat("animSpeed", (float)speedLevel + 1);
         rainController.SetAngle((float)speedLevel);
 
@@ -237,9 +239,7 @@ public class Player : MonoBehaviour
     public void DoDangerAndPickup()
     {
         RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, castSize, transform.eulerAngles.z, velocity.normalized, velocity.magnitude * Time.fixedDeltaTime);
-
-
-
+        
         for (int i = 0; i < hits.Length; i++)
         {
             Pickup pickup = hits[i].collider.GetComponent<Pickup>();
@@ -256,12 +256,13 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (died)
-        {
-            //enabled = false;
-            controller.colliding = false;
-            GameManager.GM.EndScreen(false);
-        }
+        if (died) Die();
+    }
+
+    void Die()
+    {
+        controller.colliding = false;
+        GameManager.GM.EndScreen(false);
     }
 
     private IEnumerator DoFallJump()
