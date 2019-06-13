@@ -32,6 +32,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &-8724810337855711022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Speed
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &-8717969342043601038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,7 +91,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -4145045986925816410}
+  - {fileID: -8724810337855711022}
   MinDistance: 0
   MaxDistance: 0
   Length: 74000
@@ -188,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: LambRun\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636958773177195155
+  lastModified: 636960580777236610
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -278,9 +294,9 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -3894191299105764773}
-  - {fileID: -2719249251256960748}
-  - {fileID: 1713434220765241326}
+  - {fileID: -896951052222096006}
+  - {fileID: -267380115921540967}
+  - {fileID: -5686199223095347219}
   MinDistance: 0
   MaxDistance: 0
   Length: 169200
@@ -497,6 +513,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &-5686199223095347219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: GamePause
+  Min: 0
+  Max: 1
+  Default: 1
 --- !u!114 &-5670021231746123515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,7 +621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: C:\Users\Andromeda\Documents\StraySheep\StraySheep\LambRun\Build\Desktop\Master
     Bank.bank
-  lastModified: 636958773178945620
+  lastModified: 636960580777146511
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -961,6 +993,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &-896951052222096006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Speed
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &-748965214974135431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1033,12 +1081,28 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 8469712974611103375}
-  - {fileID: -7876149604956759965}
-  - {fileID: -1170007591174564724}
+  - {fileID: 7099921065475053073}
+  - {fileID: 3403001604786053838}
+  - {fileID: 6150977219401722785}
   MinDistance: 0
   MaxDistance: 0
   Length: 28000
+--- !u!114 &-267380115921540967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Victory
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1076,7 +1140,7 @@ MonoBehaviour:
   - {fileID: -7407435160476025583}
   MasterBankRef: {fileID: -4283813870492449620}
   StringsBankRef: {fileID: -8019825024264321999}
-  stringsBankWriteTime: 636958773177195155
+  stringsBankWriteTime: 636960580777236610
   cacheVersion: 2
 --- !u!114 &244153979332493539
 MonoBehaviour:
@@ -1383,6 +1447,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &3403001604786053838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: PlayerHealth
+  Min: 0
+  Max: 1
+  Default: 1
 --- !u!114 &3526711982831457448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1609,6 +1689,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &6150977219401722785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Speed
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &6632211870991061278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1632,6 +1728,22 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 362
+--- !u!114 &7099921065475053073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: GamePause
+  Min: 0
+  Max: 1
+  Default: 1
 --- !u!114 &7127091895603644537
 MonoBehaviour:
   m_ObjectHideFlags: 0

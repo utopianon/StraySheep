@@ -102,12 +102,12 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region UI methods
-    
+
     public void Pause()
     {
         Time.timeScale = 0f;
         _pauseMenu.SetActive(true);
-        
+
         _levelMusic.setParameterValue(PAUSE_STR, 0);
     }
 
@@ -142,7 +142,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void ReloadActiveScene()
-    {
+    {       
         LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -191,7 +191,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat(SOUND_STR, _soundNoice);
 
         // TODO: set volume to FMOD VDA
-        
+
     }
 
     public void MusicVolume(Slider slider)
@@ -201,13 +201,13 @@ public class GameManager : MonoBehaviour
         UpdateSliders(true, slider.name);
 
         PlayerPrefs.SetFloat(MUSIC_STR, _musicNoice);
-        
+
         _musicVCA.setVolume(_musicNoice);
     }
 
     private void UpdateSliders(bool isMusic, string name)
     {
-        foreach(Slider s in _sliders)
+        foreach (Slider s in _sliders)
         {
             // music & "Music"
             if (isMusic && s.name == name)
