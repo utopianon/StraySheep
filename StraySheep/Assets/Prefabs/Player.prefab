@@ -78,7 +78,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00813508, y: 0.12085676}
+  m_Offset: {x: -0.06531024, y: 0.14941883}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -89,7 +89,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2651849, y: 1.3783579}
+  m_Size: {x: 1.1182942, y: 1.435482}
   m_EdgeRadius: 0
 --- !u!114 &6340605515126903217
 MonoBehaviour:
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f15ade5611d98ac42bed71219c51aa3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stationary: 0
+  platformerMovement: 0
   variableJumping: 1
   moveSpeed: 6
   minJumpHeight: 2
@@ -114,10 +114,14 @@ MonoBehaviour:
   maxJumpDist: 12
   timeToJumpPeak: 0.5
   jumpFallModifier: 1.3
-  accelerationTimeInAir: 0.2
+  accelerationTimeInAir: 0
   accelerationTimeGrounded: 0.1
   minimumVelocity: 6
   maximumVelocity: 14
+  rainDirectionSlow: {x: 0, y: 0, z: 0}
+  rainDirectionMedium: {x: 0, y: 0, z: 0}
+  rainDirectionFast: {x: 0, y: 0, z: 0}
+  rainPS: {fileID: 0}
 --- !u!114 &2026749669952484408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,12 +138,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   horizontalRayCount: 4
-  verticalRayCount: 4
+  verticalRayCount: 8
   horizontalRaySpacing: 0
   verticalRaySpacing: 0
   collider: {fileID: 0}
   maxSlopeAngle: 80
   maxDescendAngle: 75
+  colliding: 0
 --- !u!1 &2846149580763052072
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,6 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 216419280317095382}
   - component: {fileID: 1050388363666915364}
+  - component: {fileID: 1851669976}
   m_Layer: 9
   m_Name: testSprite
   m_TagString: Untagged
@@ -165,8 +171,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2846149580763052072}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.57647, z: 0}
-  m_LocalScale: {x: 2.9380233, y: 2.9380233, z: 2.9380233}
+  m_LocalPosition: {x: 0, y: 0.476, z: 0}
+  m_LocalScale: {x: 1.7380418, y: 1.7380418, z: 1.7380418}
   m_Children: []
   m_Father: {fileID: 8859759904232923289}
   m_RootOrder: 0
@@ -208,7 +214,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 500
-  m_Sprite: {fileID: 4334783836991956000, guid: 77f1fbe7f072da04cac6ca9cd4bd98e3,
+  m_Sprite: {fileID: 3184159518366690391, guid: 37141460edbab114b9397c40825f8a13,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -220,3 +226,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1851669976
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2846149580763052072}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2ca39a1ee24a90048b96d864e0d791b8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

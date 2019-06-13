@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Vector3 rainDirectionSlow, rainDirectionMedium, rainDirectionFast;
     public ParticleSystem rainPS;
+    public RainController rainController;
  
 
     private float gravity;
@@ -52,6 +53,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        anim = GetComponentInChildren<Animator>();
 
         //starts with medium speed
         speedLevel = SpeedLevel.slow;
@@ -62,7 +64,6 @@ public class Player : MonoBehaviour
         baseGravity = gravity;
 
 
-        print("Gravity: " + gravity + " Jump Velocity: " + maxJumpVelocity);
 
         castSize = GameManager.GetBoxCastSize(GetComponent<BoxCollider2D>());
     }
@@ -70,7 +71,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        //Debug.Log("grounded is " + controller.collisions.below);
         if (!died)
         {
             if (controller.collisions.above || controller.collisions.below)
@@ -113,7 +113,6 @@ public class Player : MonoBehaviour
             }
         }
 
-
         //for test
         if (!platformerMovement)
             RunnerMovement();
@@ -137,6 +136,8 @@ public class Player : MonoBehaviour
         //set rain vector
         speedLevel++;
         GameManager.GM.UpdateMusicSpeed((int)speedLevel);
+        anim.SetFloat("animSpeed", (float)speedLevel + 1);
+        rainController.SetAngle((float)speedLevel);
     }
 
     void SpeedDown()
@@ -145,6 +146,9 @@ public class Player : MonoBehaviour
         //set rain vector
         speedLevel--;
         GameManager.GM.UpdateMusicSpeed((int)speedLevel);
+        anim.SetFloat("animSpeed", (float)speedLevel + 1);
+        rainController.SetAngle((float)speedLevel);
+
     }
 
     void StandartMovement()
