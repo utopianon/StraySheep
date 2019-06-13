@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
     private float maxJumpVelocity;
     private Vector3 velocity;
     float movementSmoothing;
+    bool won = false;
     
     private float _oldX, _deathValueX = 0.0001f;
     bool died = false;
@@ -80,7 +81,7 @@ public class Player : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                if (speedLevel < SpeedLevel.fast)
+                if (speedLevel < SpeedLevel.fast)// && controller.collisions.below)
                 {
                     SpeedUp();                    
 
@@ -90,7 +91,7 @@ public class Player : MonoBehaviour
             //speeding down
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                if (speedLevel > SpeedLevel.slow)
+                if (speedLevel > SpeedLevel.slow)// && controller.collisions.below)
                 {
                     SpeedDown();
                 }
@@ -125,7 +126,7 @@ public class Player : MonoBehaviour
 
         _oldX = transform.position.x;
         controller.Move(velocity * Time.deltaTime);
-        if (transform.position.x - _oldX < _deathValueX) Die();
+        if (transform.position.x - _oldX < _deathValueX && velocity.y <= 0 && !won ) Die();
 
         GameManager.GM.distanceScore += (transform.position.x - _oldX) * (int)speedLevel;
     }
@@ -245,6 +246,13 @@ public class Player : MonoBehaviour
             Pickup pickup = hits[i].collider.GetComponent<Pickup>();
             if (pickup != null)
             {
+                if (pickup.victoryPickup)
+                {
+                    //win level
+                    won = true;
+                    platformerMovement = true;
+                    GameManager.GM.EndScreen(true);
+                }
                 GameManager.GM.currentScore += pickup.score;
                 pickup.Die();
             }
@@ -256,7 +264,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (died) Die();
+        if (died && !won) Die();
     }
 
     void Die()

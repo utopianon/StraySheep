@@ -275,5 +275,15 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 700653646}
+    - target: {fileID: 3486353818569824566, guid: ccfe94e7226d24e48b5503dad902464d,
+        type: 3}
+      propertyPath: m_text
+      value: Stray Sheep
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486353818569824566, guid: ccfe94e7226d24e48b5503dad902464d,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccfe94e7226d24e48b5503dad902464d, type: 3}
