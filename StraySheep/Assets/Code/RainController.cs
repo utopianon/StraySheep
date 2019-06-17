@@ -8,13 +8,18 @@ public class RainController : MonoBehaviour
     Camera mainCamera;
     float offsetX;
     public float angleMedium;
-    public float angleFast;    
+    public float angleFast;
+
+    private Transform PSTransform;
+
 
     // Start is called before the first frame update
     void Start()
     {
         mainCamera = Camera.main;
-        offsetX = mainCamera.transform.position.x - transform.position.x;        
+        offsetX = mainCamera.transform.position.x - transform.position.x;
+        PSTransform = transform.GetChild(0);
+
     }
 
     // Update is called once per frame
@@ -23,22 +28,32 @@ public class RainController : MonoBehaviour
         transform.position = new Vector3(mainCamera.transform.position.x + offsetX, transform.position.y, transform.position.z);
     }
 
-    public void SetAngle (float speedMode)
+    public void SetAngle(float speedMode)
     {
+
         switch (speedMode)
         {
             case 0:
-                transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, 0);
+                PSTransform.eulerAngles = new Vector3(0, 0, 0);
+
                 break;
             case 1:
-                transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, -angleMedium);
+                PSTransform.eulerAngles = new Vector3(0, 0, -angleMedium);
+
                 break;
             case 2:
-                transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, -angleFast);
+                PSTransform.eulerAngles = new Vector3(0, 0, -angleFast);
+
                 break;
             default:
-                transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, 0);
+
+                PSTransform.eulerAngles = new Vector3(0, 0, 0);
                 break;
         }
+
+
     }
+
+
+
 }
