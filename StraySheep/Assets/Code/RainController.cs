@@ -25,7 +25,7 @@ public class RainController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(mainCamera.transform.position.x + offsetX, transform.position.y, transform.position.z);
+        //transform.position = new Vector3(mainCamera.transform.position.x + offsetX, transform.position.y, transform.position.z);
     }
 
     public void SetAngle(float speedMode)
