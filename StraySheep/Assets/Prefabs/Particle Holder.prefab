@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eaf27d2024b15c47ad6c4a9be25de0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angleMedium: 30
-  angleFast: 60
+  angleMedium: 20
+  angleFast: 45
 --- !u!1001 &968328653308508090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53,10 +53,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 968328653617977443}
     m_Modifications:
+    - target: {fileID: 943479569280650016, guid: b16bcdab57977c64bb336e90aad593f3,
+        type: 3}
+      propertyPath: m_Name
+      value: Rain PS
+      objectReference: {fileID: 0}
     - target: {fileID: 943479569280650047, guid: b16bcdab57977c64bb336e90aad593f3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.852597
+      value: 11.62
       objectReference: {fileID: 0}
     - target: {fileID: 943479569280650047, guid: b16bcdab57977c64bb336e90aad593f3,
         type: 3}
@@ -108,11 +113,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 943479569280650016, guid: b16bcdab57977c64bb336e90aad593f3,
-        type: 3}
-      propertyPath: m_Name
-      value: Rain PS
-      objectReference: {fileID: 0}
     - target: {fileID: 943479569280650046, guid: b16bcdab57977c64bb336e90aad593f3,
         type: 3}
       propertyPath: prewarm
@@ -125,18 +125,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 943479569280650046, guid: b16bcdab57977c64bb336e90aad593f3,
         type: 3}
-      propertyPath: CollisionModule.collisionMode
-      value: 1
+      propertyPath: InitialModule.startRotationX.scalar
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 943479569280650046, guid: b16bcdab57977c64bb336e90aad593f3,
         type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 200
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 943479569280650046, guid: b16bcdab57977c64bb336e90aad593f3,
+        type: 3}
+      propertyPath: InitialModule.startRotation.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 943479569280650046, guid: b16bcdab57977c64bb336e90aad593f3,
+        type: 3}
+      propertyPath: InitialModule.startRotation.maxCurve.m_Curve.Array.data[0].value
+      value: 0.032787323
+      objectReference: {fileID: 0}
+    - target: {fileID: 943479569280650046, guid: b16bcdab57977c64bb336e90aad593f3,
+        type: 3}
+      propertyPath: InitialModule.startRotation.maxCurve.m_Curve.Array.data[1].value
+      value: 0.032787323
       objectReference: {fileID: 0}
     - target: {fileID: 943479569280650046, guid: b16bcdab57977c64bb336e90aad593f3,
         type: 3}
       propertyPath: ShapeModule.m_Scale.x
-      value: 30
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 943479569280650046, guid: b16bcdab57977c64bb336e90aad593f3,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 943479569280650046, guid: b16bcdab57977c64bb336e90aad593f3,
+        type: 3}
+      propertyPath: RotationModule.x.scalar
+      value: 0.44244096
+      objectReference: {fileID: 0}
+    - target: {fileID: 943479569280650046, guid: b16bcdab57977c64bb336e90aad593f3,
+        type: 3}
+      propertyPath: RotationModule.curve.scalar
+      value: 0.33370697
+      objectReference: {fileID: 0}
+    - target: {fileID: 943479569280650046, guid: b16bcdab57977c64bb336e90aad593f3,
+        type: 3}
+      propertyPath: CollisionModule.collisionMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 943479569280650017, guid: b16bcdab57977c64bb336e90aad593f3,
+        type: 3}
+      propertyPath: m_RenderAlignment
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b16bcdab57977c64bb336e90aad593f3, type: 3}
