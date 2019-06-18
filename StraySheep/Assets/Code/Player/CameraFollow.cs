@@ -10,6 +10,8 @@ public class CameraFollow : MonoBehaviour
     public float lookSmoothTimeX;
     public float verticalSmoothTime;
     public Vector2 focusAreaSize;
+
+
     
     FocusArea focusArea;
 
@@ -18,27 +20,39 @@ public class CameraFollow : MonoBehaviour
     float lookAheadDirectionX;
     float smoothLookVelocityX;
     float smoothVelocityY;
+    float actualVerticalOffset;
     bool following;
 
     private void Start()
     {
         focusArea = new FocusArea(target.collider.bounds, focusAreaSize);
         following = true;
-
+    
         GameManager.GM.levelCamera = this;
     }
 
     private void Update()
     {
+        if (target.collisions.descendingSlope)
+        {
+            actualVerticalOffset = -4;
+        }
+        else if (target.collisions.climbingSlope)
+        {
+            actualVerticalOffset = 6;
+        }
+        else
+        {
+            actualVerticalOffset = verticalOffset;
+        }
             focusArea.UpdateFocusArea(target.collider.bounds);
-
     }
     private void LateUpdate()
     {
         if (following)
         {
 
-            Vector2 focusPosition = focusArea.centre + Vector2.up * verticalOffset;
+            Vector2 focusPosition = focusArea.centre + Vector2.up * actualVerticalOffset;
 
             if (focusArea.velocity.x != 0)
             {
@@ -75,6 +89,9 @@ public class CameraFollow : MonoBehaviour
         }
         following = false;
     }
+
+
+
     struct FocusArea
     {
         public Vector2 centre;
