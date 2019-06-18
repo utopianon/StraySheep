@@ -248,16 +248,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Particle Holder
       objectReference: {fileID: 0}
-    - target: {fileID: 968328653617977442, guid: 1c72546623dc2124ba93a1c9bf561fed,
-        type: 3}
-      propertyPath: angleMedium
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 968328653617977442, guid: 1c72546623dc2124ba93a1c9bf561fed,
-        type: 3}
-      propertyPath: angleFast
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 968328653617977443, guid: 1c72546623dc2124ba93a1c9bf561fed,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1253,9 +1243,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightnFreqMin: 3
-  lightnFreqMax: 6
-  lightnLenghtMin: 0.07
-  lightnLenghtMax: 0.1
+  lightnFreqMax: 3
+  lightnLenghtMin: 0.2
+  lightnLenghtMax: 0.5
 --- !u!1001 &668966029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3536,7 +3526,7 @@ PrefabInstance:
     - target: {fileID: 1879709575203751287, guid: 8fffafaad10cfb1419139554557ca0b4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.04
+      value: 6.8
       objectReference: {fileID: 0}
     - target: {fileID: 1879709575203751287, guid: 8fffafaad10cfb1419139554557ca0b4,
         type: 3}

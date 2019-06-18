@@ -121,7 +121,7 @@ MonoBehaviour:
         neutralWhiteLevel: 5.3
         neutralWhiteClip: 10
       basic:
-        postExposure: -0.48121166
+        postExposure: -0.17500234
         temperature: 0
         tint: 0
         hueShift: 0
@@ -150,8 +150,8 @@ MonoBehaviour:
             - serializedVersion: 3
               time: 0
               value: 1
-              inSlope: -1.3543093
-              outSlope: -1.3543093
+              inSlope: 0
+              outSlope: -0.82452416
               tangentMode: 0
               weightedMode: 0
               inWeight: 0
@@ -159,8 +159,8 @@ MonoBehaviour:
             - serializedVersion: 3
               time: 1
               value: 0
-              inSlope: -1.0963457
-              outSlope: -1.0963457
+              inSlope: -0.90697694
+              outSlope: 0
               tangentMode: 0
               weightedMode: 0
               inWeight: 0
@@ -314,17 +314,17 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       colored: 0
-      intensity: 0.122
-      size: 0.57
-      luminanceContribution: 0.531
+      intensity: 0.1
+      size: 0.7
+      luminanceContribution: 0.5
   vignette:
     m_Enabled: 1
     m_Settings:
       mode: 0
       color: {r: 0, g: 0, b: 0, a: 1}
-      center: {x: 0.5, y: 0.5}
-      intensity: 0.229
-      smoothness: 0.128
+      center: {x: 0.23527241, y: 0.2836011}
+      intensity: 0.144
+      smoothness: 0.541
       roundness: 1
       mask: {fileID: 0}
       opacity: 1
