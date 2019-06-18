@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Vector3 rainDirectionSlow, rainDirectionMedium, rainDirectionFast;
     public ParticleSystem rainPS;
+    public RainController rainController;
  
 
     private float gravity;
@@ -38,6 +39,7 @@ public class Player : MonoBehaviour
     private float maxJumpVelocity;
     private Vector3 velocity;
     float movementSmoothing;
+    bool won = false;
     
     private float _oldX, _deathValueX = 0.0001f;
     bool died = false;
@@ -52,6 +54,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        anim = GetComponentInChildren<Animator>();
 
         //starts with medium speed
         speedLevel = SpeedLevel.slow;
@@ -62,7 +65,6 @@ public class Player : MonoBehaviour
         baseGravity = gravity;
 
 
-        print("Gravity: " + gravity + " Jump Velocity: " + maxJumpVelocity);
 
         castSize = GameManager.GetBoxCastSize(GetComponent<BoxCollider2D>());
     }
@@ -70,7 +72,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        //Debug.Log("grounded is " + controller.collisions.below);
         if (!died)
         {
             if (controller.collisions.above || controller.collisions.below)
@@ -80,7 +81,7 @@ public class Player : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                if (speedLevel < SpeedLevel.fast)
+                if (speedLevel < SpeedLevel.fast)// && controller.collisions.below)
                 {
                     SpeedUp();                    
 
@@ -90,7 +91,7 @@ public class Player : MonoBehaviour
             //speeding down
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                if (speedLevel > SpeedLevel.slow)
+                if (speedLevel > SpeedLevel.slow)// && controller.collisions.below)
                 {
                     SpeedDown();
                 }
@@ -113,7 +114,6 @@ public class Player : MonoBehaviour
             }
         }
 
-
         //for test
         if (!platformerMovement)
             RunnerMovement();
@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
 
         _oldX = transform.position.x;
         controller.Move(velocity * Time.deltaTime);
-        if (transform.position.x - _oldX < _deathValueX) Die();
+        if (transform.position.x - _oldX < _deathValueX && velocity.y <= 0 && !won ) Die();
 
         GameManager.GM.distanceScore += (transform.position.x - _oldX) * (int)speedLevel;
     }
@@ -137,6 +137,8 @@ public class Player : MonoBehaviour
         //set rain vector
         speedLevel++;
         GameManager.GM.UpdateMusicSpeed((int)speedLevel);
+        anim.SetFloat("animSpeed", (float)speedLevel + 1);
+        rainController.SetAngle((float)speedLevel);
     }
 
     void SpeedDown()
@@ -145,6 +147,9 @@ public class Player : MonoBehaviour
         //set rain vector
         speedLevel--;
         GameManager.GM.UpdateMusicSpeed((int)speedLevel);
+        anim.SetFloat("animSpeed", (float)speedLevel + 1);
+        rainController.SetAngle((float)speedLevel);
+
     }
 
     void StandartMovement()
@@ -241,6 +246,13 @@ public class Player : MonoBehaviour
             Pickup pickup = hits[i].collider.GetComponent<Pickup>();
             if (pickup != null)
             {
+                if (pickup.victoryPickup)
+                {
+                    //win level
+                    won = true;
+                    platformerMovement = true;
+                    GameManager.GM.EndScreen(true);
+                }
                 GameManager.GM.currentScore += pickup.score;
                 pickup.Die();
             }
@@ -252,7 +264,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (died) Die();
+        if (died && !won) Die();
     }
 
     void Die()
