@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PostProcessing;
+
 
 public class CameraFollow : MonoBehaviour
 {
@@ -10,35 +12,54 @@ public class CameraFollow : MonoBehaviour
     public float lookSmoothTimeX;
     public float verticalSmoothTime;
     public Vector2 focusAreaSize;
-    
+
+    Vector2 targetPosInScreenSpace;
+    VignetteModel.Settings vignette;
+    PostProcessingBehaviour PP;
     FocusArea focusArea;
+    Camera thisCamera;
 
     float currentLookAheadX;
     float targetLookAheadX;
     float lookAheadDirectionX;
     float smoothLookVelocityX;
     float smoothVelocityY;
+    float actualVerticalOffset;
     bool following;
 
     private void Start()
     {
         focusArea = new FocusArea(target.collider.bounds, focusAreaSize);
+        PP = GetComponent<PostProcessingBehaviour>();
+        vignette = PP.profile.vignette.settings;       
         following = true;
-
+        thisCamera = GetComponent<Camera>();
+    
         GameManager.GM.levelCamera = this;
     }
 
     private void Update()
     {
+        if (target.collisions.descendingSlope)
+        {
+            actualVerticalOffset = -4;
+        }
+        else if (target.collisions.climbingSlope)
+        {
+            actualVerticalOffset = 6;
+        }
+        else
+        {
+            actualVerticalOffset = verticalOffset;
+        }
             focusArea.UpdateFocusArea(target.collider.bounds);
-
     }
     private void LateUpdate()
     {
         if (following)
         {
 
-            Vector2 focusPosition = focusArea.centre + Vector2.up * verticalOffset;
+            Vector2 focusPosition = focusArea.centre + Vector2.up * actualVerticalOffset;
 
             if (focusArea.velocity.x != 0)
             {
@@ -50,8 +71,11 @@ public class CameraFollow : MonoBehaviour
 
             focusPosition.y = Mathf.SmoothDamp(transform.position.y, focusPosition.y, ref smoothVelocityY, verticalSmoothTime);
             focusPosition += Vector2.right * currentLookAheadX;
-
             transform.position = (Vector3)focusPosition + Vector3.forward * -10;
+            targetPosInScreenSpace = thisCamera.WorldToScreenPoint(target.transform.position);
+            vignette.center = ScreenSpaceToFraction(targetPosInScreenSpace);
+            Debug.Log("Vignette centrer is " + vignette.center);
+            PP.profile.vignette.settings = vignette;
         }
     }
     private void OnDrawGizmos()
@@ -75,6 +99,14 @@ public class CameraFollow : MonoBehaviour
         }
         following = false;
     }
+
+    Vector2 ScreenSpaceToFraction(Vector2 screenSpaceCoordinates)
+    {
+        return new Vector2(screenSpaceCoordinates.x / Screen.currentResolution.width, screenSpaceCoordinates.y / Screen.currentResolution.height);
+    }
+
+
+
     struct FocusArea
     {
         public Vector2 centre;
