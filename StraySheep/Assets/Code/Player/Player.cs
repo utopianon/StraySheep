@@ -37,11 +37,11 @@ public class Player : MonoBehaviour
     private float baseGravity;
     private float minJumpVelocity;
     private float maxJumpVelocity;
-    private Vector3 velocity;
+    private Vector3 velocity, oldPos;
     float movementSmoothing;
     bool won = false;
     
-    private float _oldX, _deathValueX = 0.0001f;
+    private float _deathValueX = 0.0001f;
     bool died = false;
 
     // casting stuff
@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
         minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
         baseGravity = gravity;
 
-
+        GameManager.GM.Continue();
 
         castSize = GameManager.GetBoxCastSize(GetComponent<BoxCollider2D>());
     }
@@ -121,16 +121,19 @@ public class Player : MonoBehaviour
             StandartMovement();
 
         velocity.y += gravity * Time.deltaTime;
-
-        DoDangerAndPickup();
-
-        _oldX = transform.position.x;
+        oldPos = transform.position;
+        
+        // moves player
         controller.Move(velocity * Time.deltaTime);
-        //if (transform.position.x - _oldX < _deathValueX && velocity.y <= 0 && !won ) Die();
 
-        GameManager.GM.distanceScore += (transform.position.x - _oldX) * (int)speedLevel;
+        if (!died)
+        {
+            DoDangerAndPickup();
+            if (transform.position.x - oldPos.x < _deathValueX && velocity.y <= 0 && !won) Die();
+            GameManager.GM.distanceScore += (transform.position.x - oldPos.x) * (int)speedLevel;
+        }
     }
-
+       
     void SpeedUp()
     {
         //TODO
@@ -239,7 +242,7 @@ public class Player : MonoBehaviour
 
     public void DoDangerAndPickup()
     {
-        RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, castSize, transform.eulerAngles.z, velocity.normalized, velocity.magnitude * Time.fixedDeltaTime);
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(oldPos, castSize, 0f, velocity.normalized, velocity.magnitude * Time.fixedDeltaTime);
         
         for (int i = 0; i < hits.Length; i++)
         {

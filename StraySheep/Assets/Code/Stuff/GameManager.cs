@@ -113,6 +113,8 @@ public class GameManager : MonoBehaviour
 
     public void EndScreen(bool win)
     {
+        if (_endMenu.activeSelf) return;
+
         Time.timeScale = 0.75f;
         _endMenu.SetActive(true);
         levelCamera.DeathCamera();
@@ -137,6 +139,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         _pauseMenu.SetActive(false);
+        _endMenu.SetActive(false);
 
         _levelMusic.setParameterValue(PAUSE_STR, 1);
     }

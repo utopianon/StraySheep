@@ -7,13 +7,82 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000001A79EEB31C8 isAsync 0 updatePeriod 0.02
+<<<<<<< HEAD
+[LOG] AsyncManager::init                       : manager 000002A4477037B8 isAsync 0 updatePeriod 0.02
+=======
+[LOG] AsyncManager::init                       : manager 00000278F364F1E8 isAsync 0 updatePeriod 0.02
+>>>>>>> master
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] PlaybackSystem::init                     : done
 [LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] Manager::init                            : done.
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 101)
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 101)
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 101)
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 101)
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 101)
+[LOG] SystemI::createSound                     : filename = LambRun\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000278E44B31E8 : node = 00000278E4F08F20
+[LOG] SystemI::createSound                     : add node to async list : head = 00000278DD1EDE68.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000278E44B31E8
+[LOG] SystemI::createSoundInternal             :     Create name='LambRun\Build\Desktop/Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSound                     : filename = LambRun\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 13557728
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 78976
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSound                     :     setdata soundi = 00000278E44B3A58 : node = 00000278F34389D0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000278E4F09038
+[LOG] SystemI::createSound                     :     add node to async list : head = 00000278DD1EDE68.  list count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 160800
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='8BitSheepCompleteExtraStuff', format=2, channels=2, frequency=48000, lengthbytes=1910592, lengthpcm=8121600, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000000.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000278E44B31E8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000278E44B3A58
+[LOG] SystemI::createSoundInternal             :     Create name='LambRun\Build\Desktop/Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 13557728
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 78976
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000278F3438AE8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 160800
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='8BitSheepCompleteSimpleVersion', format=2, channels=2, frequency=48000, lengthbytes=2306528, lengthpcm=8121600, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000000.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000278E44B3A58
+[LOG] SoundI::getSubSound                      : sound 00000278E44B31E8.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : sound 00000278E44B3A58.  Subsound index 0 / 1
+[LOG] SoundI::release                          : 8BitSheepCompleteSimpleVersion (00000278E44B38A8)
+[LOG] SoundI::release                          :     8BitSheepCompleteSimpleVersion (00000278DD1EC998)
+[LOG] SoundI::release                          :     8BitSheepCompleteSimpleVersion (00000278E44B27C8)
+[LOG] SoundI::release                          : 8BitSheepCompleteExtraStuff (00000278E44B2E88)
+[LOG] SoundI::release                          :     8BitSheepCompleteExtraStuff (00000278DD1EDEB8)
+[LOG] SoundI::release                          :     8BitSheepCompleteExtraStuff (00000278E44B3398)
+[LOG] SoundI::release                          : 8BitSheepCompleteSimpleVersion (00000278E44B3A58)
+[LOG] SoundI::release                          :     8BitSheepCompleteSimpleVersion (00000278F3B08518)
+[LOG] SoundI::release                          :     8BitSheepCompleteSimpleVersion (00000278E44B3DB8)
+[LOG] SoundI::release                          : 8BitSheepCompleteExtraStuff (00000278E44B31E8)
+[LOG] SoundI::release                          :     8BitSheepCompleteExtraStuff (00000278F3B0AF58)
+[LOG] SoundI::release                          :     8BitSheepCompleteExtraStuff (00000278E44B3C08)
+[LOG] SoundI::release                          :  (00000278D6FEDF28)
+[LOG] SoundI::release                          :     Scroll_01 (00000278DD1EC7F8)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] SystemI::close                           : Closed.
 [LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 101)
 [LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 101)
 [LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 101)
@@ -27,4 +96,6 @@
 [LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
+[LOG] Thread::callback                         : FMOD file thread finished.
 [LOG] SystemI::close                           : Closed.
