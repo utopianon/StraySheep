@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: d9d82ac5b9fcd1740805d29c910c5426
+guid: 95653b1c1f541734d97adc3a67bed144
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2940649096967254720
-    second: Kite_0
+      213: 5354429476588687777
+    second: Tree2_0
   - first:
-      213: 649444516453044666
-    second: Kite_1
+      213: -6125760586055823200
+    second: Tree2_1
   - first:
-      213: 6820130975265055724
-    second: Kite_2
+      213: -7736278973484575046
+    second: Tree2_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -45,7 +45,7 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 2
@@ -80,7 +80,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 256
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 2
@@ -91,7 +91,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: iPhone
-    maxTextureSize: 256
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 2
@@ -102,7 +102,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
-    maxTextureSize: 256
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 2
@@ -113,7 +113,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: WebGL
-    maxTextureSize: 256
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 2
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Kite_0
+      name: Tree2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 128
+        width: 192
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c3b45d4e8e3a774881ccc65bad856b3
-      internalID: -2940649096967254720
+      spriteID: 32e406147d05a4a4aae3cfbdbad18c8f
+      internalID: 5354429476588687777
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kite_1
+      name: Tree2_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 192
         y: 0
-        width: 64
-        height: 128
+        width: 192
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00544c0eeae45ea418bcbe85bcbe4e2b
-      internalID: 649444516453044666
+      spriteID: 03a40a21687c84140866246753652dd5
+      internalID: -6125760586055823200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kite_2
+      name: Tree2_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 384
         y: 0
-        width: 64
-        height: 128
+        width: 192
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 951d2ec619a7bda49a951abcfaddf768
-      internalID: 6820130975265055724
+      spriteID: c29cc5544e088ef4aaf1190c9d95d7b1
+      internalID: -7736278973484575046
       vertices: []
       indices: 
       edges: []
@@ -191,7 +191,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: f64a2c75dbadc6a43a8a438559e5809a
+    spriteID: bf79c7e1225a98e40b396c2938c9b5d1
     internalID: 0
     vertices: []
     indices: 
