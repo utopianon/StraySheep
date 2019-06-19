@@ -126,11 +126,11 @@ public class Player : MonoBehaviour
 
         _oldX = transform.position.x;
         controller.Move(velocity * Time.deltaTime);
-        //if (transform.position.x - _oldX < _deathValueX && velocity.y <= 0 && !won ) Die();
+        if (transform.position.x - _oldX < _deathValueX && velocity.y <= 0 && !won  && !platformerMovement) Die();
 
         GameManager.GM.distanceScore += (transform.position.x - _oldX) * (int)speedLevel;
     }
-
+       
     void SpeedUp()
     {
         //TODO

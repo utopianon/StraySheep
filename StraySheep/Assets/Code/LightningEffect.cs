@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.PostProcessing;
 
 
@@ -38,6 +39,15 @@ public class LightningEffect : MonoBehaviour
         }
     }
 
+    private void OnLevelWasLoaded(int level)
+    {
+        if (!PP)
+            PP = GetComponent<PostProcessingBehaviour>();
+        PP.profile.colorGrading.enabled = false;
+        timeForNextLight = Random.Range(lightnFreqMin, lightnFreqMax);
+        isLightn = false;
+    }
+
     IEnumerator LightningStrike()
     {
         float timer = 0;
@@ -45,7 +55,7 @@ public class LightningEffect : MonoBehaviour
         ColorGradingModel.Settings PPb = PP.profile.colorGrading.settings;
         while (timer <= lenghtForNextLight)
         {
-            PPb.basic.postExposure = Mathf.Lerp(-4,0,(timer/lenghtForNextLight));
+            PPb.basic.postExposure = Mathf.Lerp(-4, 0, (timer / lenghtForNextLight));
             PP.profile.colorGrading.settings = PPb;
             timer += Time.deltaTime;
             yield return null;
