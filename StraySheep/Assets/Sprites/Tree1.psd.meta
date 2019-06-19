@@ -1,0 +1,302 @@
+fileFormatVersion: 2
+guid: dd389052dc237bb4e8a82d859c5e95f8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6215267202064938543
+    second: Tree1_0
+  - first:
+      213: -5597570988121575489
+    second: Tree1_1
+  - first:
+      213: 542723386359573843
+    second: Tree1_2
+  - first:
+      213: 3940409226945107963
+    second: Tree1_3
+  - first:
+      213: -9130447484784962851
+    second: Tree1_4
+  - first:
+      213: 9050774589780060452
+    second: Tree1_5
+  - first:
+      213: -4024382073413787549
+    second: Tree1_6
+  - first:
+      213: 8143098205146776124
+    second: Tree1_7
+  - first:
+      213: 6848464376640592290
+    second: Tree1_8
+  - first:
+      213: -396994759611835780
+    second: Tree1_9
+  - first:
+      213: -3535089556780010316
+    second: Tree1_10
+  - first:
+      213: -2824740065545242860
+    second: Tree1_11
+  - first:
+      213: 6473465894535179305
+    second: Tree1_12
+  - first:
+      213: -1750905100066924019
+    second: Tree1_13
+  - first:
+      213: -8495746030715325723
+    second: Tree1_14
+  - first:
+      213: -3052581981666011953
+    second: Tree1_15
+  - first:
+      213: -123752612280509167
+    second: Tree1_16
+  - first:
+      213: 1715892127149632754
+    second: Tree1_17
+  - first:
+      213: -5583765905971212931
+    second: Tree1_18
+  - first:
+      213: 1055876685985397776
+    second: Tree1_19
+  - first:
+      213: 1215888373163778600
+    second: Tree1_20
+  - first:
+      213: 2408137620417435862
+    second: Tree1_21
+  - first:
+      213: -2568374523034553070
+    second: Tree1_22
+  - first:
+      213: -2878064173823413115
+    second: Tree1_23
+  - first:
+      213: -6944479379373159156
+    second: Tree1_24
+  - first:
+      213: -3784598094789638006
+    second: Tree1_25
+  - first:
+      213: 101540138244200349
+    second: Tree1_26
+  - first:
+      213: 4909260415740043840
+    second: Tree1_27
+  - first:
+      213: -7895780566560837628
+    second: Tree1_28
+  - first:
+      213: -4676617588685137420
+    second: Tree1_29
+  - first:
+      213: 2994897973129437442
+    second: Tree1_30
+  - first:
+      213: -5771417233579054131
+    second: Tree1_31
+  - first:
+      213: -8617559386836867611
+    second: Tree1_32
+  - first:
+      213: 4563690836429216178
+    second: Tree1_33
+  - first:
+      213: 8617831701104142491
+    second: Tree1_34
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tree1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 192
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8b0f49a6f175794a8684261cf2efdd0
+      internalID: 6215267202064938543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree1_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 798158a4c7f2b8e49bdadef322aa0e32
+      internalID: -5597570988121575489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree1_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 192
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 436e0d6e09cdef84c83272d8dbe506ce
+      internalID: 542723386359573843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 396cbc5cf014fdf419de540543c1c101
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

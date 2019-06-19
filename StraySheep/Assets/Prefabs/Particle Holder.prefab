@@ -125,18 +125,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 943479569280650046, guid: b16bcdab57977c64bb336e90aad593f3,
         type: 3}
-      propertyPath: CollisionModule.collisionMode
-      value: 1
+      propertyPath: InitialModule.startRotationX.scalar
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 943479569280650046, guid: b16bcdab57977c64bb336e90aad593f3,
         type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 200
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 943479569280650046, guid: b16bcdab57977c64bb336e90aad593f3,
+        type: 3}
+      propertyPath: InitialModule.startRotation.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 943479569280650046, guid: b16bcdab57977c64bb336e90aad593f3,
+        type: 3}
+      propertyPath: InitialModule.startRotation.maxCurve.m_Curve.Array.data[0].value
+      value: 0.032787323
+      objectReference: {fileID: 0}
+    - target: {fileID: 943479569280650046, guid: b16bcdab57977c64bb336e90aad593f3,
+        type: 3}
+      propertyPath: InitialModule.startRotation.maxCurve.m_Curve.Array.data[1].value
+      value: 0.032787323
       objectReference: {fileID: 0}
     - target: {fileID: 943479569280650046, guid: b16bcdab57977c64bb336e90aad593f3,
         type: 3}
       propertyPath: ShapeModule.m_Scale.x
-      value: 30
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 943479569280650046, guid: b16bcdab57977c64bb336e90aad593f3,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 943479569280650046, guid: b16bcdab57977c64bb336e90aad593f3,
+        type: 3}
+      propertyPath: RotationModule.x.scalar
+      value: 0.44244096
+      objectReference: {fileID: 0}
+    - target: {fileID: 943479569280650046, guid: b16bcdab57977c64bb336e90aad593f3,
+        type: 3}
+      propertyPath: RotationModule.curve.scalar
+      value: 0.33370697
+      objectReference: {fileID: 0}
+    - target: {fileID: 943479569280650046, guid: b16bcdab57977c64bb336e90aad593f3,
+        type: 3}
+      propertyPath: CollisionModule.collisionMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 943479569280650017, guid: b16bcdab57977c64bb336e90aad593f3,
         type: 3}
