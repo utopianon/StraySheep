@@ -52,7 +52,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SheepAnimation
-  m_Speed: 0.52
+  m_Speed: 0.44
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
