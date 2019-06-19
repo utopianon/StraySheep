@@ -133,7 +133,7 @@ public class Player : MonoBehaviour
             GameManager.GM.distanceScore += (transform.position.x - oldPos.x) * (int)speedLevel;
         }
     }
-
+       
     void SpeedUp()
     {
         //TODO
