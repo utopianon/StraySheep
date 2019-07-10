@@ -50,6 +50,9 @@ public class Player : MonoBehaviour
     enum SpeedLevel { slow, medium, fast };
     SpeedLevel speedLevel;
 
+    public int bufferSize = 12;     //How many frames the input buffer keeps checking for new inputs / The Size of the Buffer
+    public InputBufferItem[] inputBuffer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,6 +70,12 @@ public class Player : MonoBehaviour
         GameManager.GM.Continue();
 
         castSize = GameManager.GetBoxCastSize(GetComponent<BoxCollider2D>());
+
+        inputBuffer = new InputBufferItem[bufferSize];
+        for (int i = 0; i < inputBuffer.Length; i++)
+        {
+            inputBuffer[i] = new InputBufferItem();
+        }
     }
 
     // Update is called once per frame
@@ -133,6 +142,11 @@ public class Player : MonoBehaviour
             GameManager.GM.distanceScore += (transform.position.x - oldPos.x) * (int)speedLevel;
         }
     }
+
+    void UpdateBuffer()
+    {
+
+    }
        
     void SpeedUp()
     {
@@ -143,7 +157,7 @@ public class Player : MonoBehaviour
         anim.SetFloat("animSpeed", (float)speedLevel + 1);
         rainController.SetAngle((float)speedLevel);
     }
-
+    
     void SpeedDown()
     {
         //TODO
