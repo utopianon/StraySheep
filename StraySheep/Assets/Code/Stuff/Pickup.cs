@@ -9,6 +9,8 @@ public class Pickup : MonoBehaviour
 
     public void Die()
     {
+        if (victoryPickup)
+            GameManager.GM.LoadNextScene();
         Destroy(gameObject);
     }
 }

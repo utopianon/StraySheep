@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     private VCA _musicVCA, _soundVCA;
 
     // scoring
-    [HideInInspector] public int currentScore;
+    [HideInInspector] public int currentScore, currentScene;
     [HideInInspector] public float distanceScore;//levelTimer, distance;
 
     // menu & UI
@@ -151,6 +151,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadScene(int buildIndex)
     {
+        currentScene = buildIndex;
         SceneManager.LoadScene(buildIndex);
 
         if (buildIndex == MAINMENU)
@@ -171,6 +172,16 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 1;
         currentScore = 0;
+    }
+
+    public void LoadNextScene()
+    {
+        if (currentScene < 4)
+        {
+            LoadScene(currentScene + 1);
+        }
+        else
+            LoadScene(0);        
     }
 
     public void ExitGame()

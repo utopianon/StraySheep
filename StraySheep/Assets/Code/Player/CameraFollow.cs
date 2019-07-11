@@ -74,7 +74,7 @@ public class CameraFollow : MonoBehaviour
             transform.position = (Vector3)focusPosition + Vector3.forward * -10;
             targetPosInScreenSpace = thisCamera.WorldToScreenPoint(target.transform.position);
             vignette.center = ScreenSpaceToFraction(targetPosInScreenSpace);
-            Debug.Log("Vignette centrer is " + vignette.center);
+
             PP.profile.vignette.settings = vignette;
         }
     }

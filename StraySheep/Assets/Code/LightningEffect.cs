@@ -9,6 +9,7 @@ public class LightningEffect : MonoBehaviour
 {
     public float lightnFreqMin, lightnFreqMax;
     public float lightnLenghtMin, lightnLenghtMax;
+    public AudioSource thunder;
 
     private PostProcessingBehaviour PP;
     private float timeSinceLastLight;
@@ -17,6 +18,7 @@ public class LightningEffect : MonoBehaviour
 
     private void Start()
     {
+        thunder = GetComponent<AudioSource>();
         PP = GetComponent<PostProcessingBehaviour>();
         timeForNextLight = Random.Range(lightnFreqMin, lightnFreqMax);
         isLightn = false;
@@ -53,6 +55,7 @@ public class LightningEffect : MonoBehaviour
         float timer = 0;
         PP.profile.colorGrading.enabled = true;
         ColorGradingModel.Settings PPb = PP.profile.colorGrading.settings;
+        thunder.Play(0);
         while (timer <= lenghtForNextLight)
         {
             PPb.basic.postExposure = Mathf.Lerp(-4, 0, (timer / lenghtForNextLight));
