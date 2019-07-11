@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Vector3 rainDirectionSlow, rainDirectionMedium, rainDirectionFast;
     public ParticleSystem rainPS;
     public RainController rainController;
- 
+
 
     private float gravity;
     private float baseGravity;
@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
     private Vector3 velocity, oldPos;
     float movementSmoothing;
     bool won = false;
-    
+
     private float _deathValueX = 0.0001f;
     bool died = false;
 
@@ -49,6 +49,9 @@ public class Player : MonoBehaviour
 
     enum SpeedLevel { slow, medium, fast };
     SpeedLevel speedLevel;
+
+    public int bufferSize = 12;     //How many frames the input buffer keeps checking for new inputs / The Size of the Buffer
+    public InputBufferItem[] inputBuffer;
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +70,12 @@ public class Player : MonoBehaviour
         GameManager.GM.Continue();
 
         castSize = GameManager.GetBoxCastSize(GetComponent<BoxCollider2D>());
+
+        inputBuffer = new InputBufferItem[bufferSize];
+        for (int i = 0; i < inputBuffer.Length; i++)
+        {
+            inputBuffer[i] = new InputBufferItem();
+        }
     }
 
     // Update is called once per frame
@@ -83,10 +92,10 @@ public class Player : MonoBehaviour
             {
                 if (speedLevel < SpeedLevel.fast)// && controller.collisions.below)
                 {
-                    SpeedUp();                    
+                    SpeedUp();
 
                 }
-            }        
+            }
 
             //speeding down
             if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -97,13 +106,17 @@ public class Player : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                if (controller.collisions.below)
-                {
-                    FastFallingJump();
-                }
-            }
+            //if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+            //{
+            //    if (controller.collisions.below)
+            //    {
+            //        FastFallingJump();
+            //    }
+            //}
+
+            UpdateBuffer();
+            UpdateCommand();
+
             if (variableJumping)
             {
                 if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.UpArrow))
@@ -122,7 +135,7 @@ public class Player : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         oldPos = transform.position;
-        
+
         // moves player
         controller.Move(velocity * Time.deltaTime);
 
@@ -133,7 +146,36 @@ public class Player : MonoBehaviour
             GameManager.GM.distanceScore += (transform.position.x - oldPos.x) * (int)speedLevel;
         }
     }
-       
+
+    void UpdateBuffer()
+    {
+        if (Input.GetAxisRaw("Jump") > 0) { inputBuffer[inputBuffer.Length - 1].Hold(); }
+        else { inputBuffer[inputBuffer.Length - 1].ReleaseHold(); }
+
+        //Go through each Input Buffer item and copy the previous frame
+        for (int i = 0; i < inputBuffer.Length - 1; i++)
+        {
+            inputBuffer[i].hold = inputBuffer[i + 1].hold;
+            inputBuffer[i].used = inputBuffer[i + 1].used;
+        }
+    }
+
+    public void UpdateCommand()
+    {
+        for (int i = 0; i < inputBuffer.Length; i++)
+        {
+            if (inputBuffer[i].CanExecute())
+            {
+                if (controller.collisions.below)
+                {
+                    FastFallingJump();
+                    inputBuffer[i].Execute();
+                    break;
+                }
+            }
+        }
+    }
+
     void SpeedUp()
     {
         //TODO
@@ -243,7 +285,7 @@ public class Player : MonoBehaviour
     public void DoDangerAndPickup()
     {
         RaycastHit2D[] hits = Physics2D.BoxCastAll(oldPos, castSize, 0f, velocity.normalized, velocity.magnitude * Time.fixedDeltaTime);
-        
+
         for (int i = 0; i < hits.Length; i++)
         {
             Pickup pickup = hits[i].collider.GetComponent<Pickup>();
