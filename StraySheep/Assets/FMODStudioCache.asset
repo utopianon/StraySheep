@@ -1,6 +1,10 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD
 --- !u!114 &-8982645592096770428
+=======
+--- !u!114 &-8830047725173797019
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,6 +13,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -40,6 +45,19 @@ MonoBehaviour:
   MaxDistance: 0
   Length: 117
 --- !u!114 &-8491415667186643413
+=======
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: LambRun\Build\Desktop\Master Bank.strings.bank
+  lastModified: 636964595676660942
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1900
+  Exists: 1
+--- !u!114 &-8368462015191537521
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51,11 +69,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Path: event:/Music/LevelTheme/LevelThemeViral
   guid: 098fa851ef5f8d44bf0cdd82e0613235
   Banks:
   - {fileID: -6244118098200475036}
   IsStream: 1
+=======
+  Path: event:/SFX/SheepSFX/SheepVO
+  guid: c0fec07d5274564595d954143fff2bd9
+  Banks:
+  - {fileID: 3764173641157073388}
+  IsStream: 0
+>>>>>>> JuriBranch
   Is3D: 0
   IsOneShot: 0
   Parameters:
@@ -64,8 +90,13 @@ MonoBehaviour:
   - {fileID: -5141671609062848992}
   MinDistance: 0
   MaxDistance: 0
+<<<<<<< HEAD
   Length: 169200
 --- !u!114 &-8336002205586331938
+=======
+  Length: 843
+--- !u!114 &-7970414656177347255
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,11 +108,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Name: PlayerHealth
   Min: 0
   Max: 1
   Default: 1
 --- !u!114 &-7270408641238758501
+=======
+  Name: Speed
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &-7673019677415654011
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,16 +132,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Path: event:/SFX/SheepSFX/Death
   guid: c6b76045d050cb4387128691fb4ad681
   Banks:
   - {fileID: -6244118098200475036}
+=======
+  Path: event:/SFX/Obstacles/CollisionWall
+  guid: 25def59c335ff640b3c52a64a4d647ab
+  Banks:
+  - {fileID: 3764173641157073388}
+>>>>>>> JuriBranch
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+<<<<<<< HEAD
   Length: 2642
 --- !u!114 &-6403618971799480797
 MonoBehaviour:
@@ -145,6 +192,10 @@ MonoBehaviour:
     Value: 13636704
   Exists: 1
 --- !u!114 &-6172602810016565709
+=======
+  Length: 362
+--- !u!114 &-6578677208688061466
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,6 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Path: event:/SFX/SheepSFX/SheepVO
   guid: c0fec07d5274564595d954143fff2bd9
   Banks:
@@ -168,6 +220,13 @@ MonoBehaviour:
   MaxDistance: 0
   Length: 843
 --- !u!114 &-6166892734348292558
+=======
+  Name: GamePause
+  Min: 0
+  Max: 1
+  Default: 1
+--- !u!114 &-4841787480791064302
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,6 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Path: event:/MainMenu/MenuSelectIn
   guid: ca84a6d5b39a29429d665ef6fe36ca54
   Banks:
@@ -191,6 +251,13 @@ MonoBehaviour:
   MaxDistance: 0
   Length: 362
 --- !u!114 &-5974071575180932259
+=======
+  Name: PlayerHealth
+  Min: 0
+  Max: 1
+  Default: 1
+--- !u!114 &-4448310104644961024
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,11 +269,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Name: Speed
   Min: 0
   Max: 1
   Default: 0
 --- !u!114 &-5141671609062848992
+=======
+  Name: GamePause
+  Min: 0
+  Max: 1
+  Default: 1
+--- !u!114 &-4089973458752760268
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,11 +293,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Name: GamePause
   Min: 0
   Max: 1
   Default: 1
 --- !u!114 &-5030919785912383338
+=======
+  Path: event:/MainMenu/MenuSelectIn
+  guid: ca84a6d5b39a29429d665ef6fe36ca54
+  Banks:
+  - {fileID: 3764173641157073388}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 362
+--- !u!114 &-3995767696624723441
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -238,6 +328,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+<<<<<<< HEAD
 --- !u!114 &-4756495008758865208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,6 +353,9 @@ MonoBehaviour:
   MaxDistance: 0
   Length: 362
 --- !u!114 &-4571682908291541570
+=======
+--- !u!114 &-2884223634069088948
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -273,16 +367,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Path: event:/SFX/Movement/Footsteps/Footsteps
   guid: f8e01c2302aa4449bcb28b5920be41be
   Banks:
   - {fileID: -6244118098200475036}
+=======
+  Path: event:/SFX/Obstacles/Falling
+  guid: a7993521968a114ebd338e7689111f85
+  Banks:
+  - {fileID: 3764173641157073388}
+>>>>>>> JuriBranch
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+<<<<<<< HEAD
   Length: 218
 --- !u!114 &-4520389494741571580
 MonoBehaviour:
@@ -301,6 +403,10 @@ MonoBehaviour:
   Max: 1
   Default: 0
 --- !u!114 &-4114054846670185005
+=======
+  Length: 362
+--- !u!114 &-2096130686650506157
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -312,11 +418,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Name: GamePause
   Min: 0
   Max: 1
   Default: 1
 --- !u!114 &-2471033548613384020
+=======
+  Path: event:/SFX/Collectables/Notifications
+  guid: 3cebe5b06aa2344b8dc576942c77f700
+  Banks:
+  - {fileID: 3764173641157073388}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1629
+--- !u!114 &-1986561750554232120
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -328,18 +449,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Path: event:/SFX/Obstacles/GettingHit
   guid: b8e3b852ae1ec94db7747cc7a493127b
   Banks:
   - {fileID: -6244118098200475036}
   IsStream: 0
+=======
+  Path: event:/Ambience/RainAmbience
+  guid: a9f33efed6eca849b10fd77b99b83d3b
+  Banks:
+  - {fileID: 3764173641157073388}
+  IsStream: 1
+>>>>>>> JuriBranch
   Is3D: 0
-  IsOneShot: 1
-  Parameters: []
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -3995767696624723441}
   MinDistance: 0
   MaxDistance: 0
+<<<<<<< HEAD
   Length: 500
 --- !u!114 &-1161107486398360204
+=======
+  Length: 74000
+--- !u!114 &-1680288984861957528
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -351,11 +486,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Name: PlayerHealth
   Min: 0
   Max: 1
   Default: 1
 --- !u!114 &-430369520997475976
+=======
+  Path: event:/SFX/SheepSFX/Death
+  guid: c6b76045d050cb4387128691fb4ad681
+  Banks:
+  - {fileID: 3764173641157073388}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2642
+--- !u!114 &-236936784518066082
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -367,16 +517,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Movement/Jumps/Jumps
-  guid: 4504e4a477a0aa4398d3fda29b18a9af
+  Path: event:/Music/LevelTheme/LevelTheme
+  guid: e30faebba3ff3a488d7b33da1ed67cfe
   Banks:
+<<<<<<< HEAD
   - {fileID: -6244118098200475036}
   IsStream: 0
+=======
+  - {fileID: 3764173641157073388}
+  IsStream: 1
+>>>>>>> JuriBranch
   Is3D: 0
-  IsOneShot: 1
-  Parameters: []
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -4448310104644961024}
+  - {fileID: -4841787480791064302}
+  - {fileID: 5633150812700590172}
   MinDistance: 0
   MaxDistance: 0
+<<<<<<< HEAD
   Length: 1000
 --- !u!114 &-274265458752012912
 MonoBehaviour:
@@ -395,6 +554,10 @@ MonoBehaviour:
   Max: 1
   Default: 0
 --- !u!114 &-162049050738830061
+=======
+  Length: 28000
+--- !u!114 &11400000
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -406,6 +569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Path: event:/Ambience/RainAmbience
   guid: a9f33efed6eca849b10fd77b99b83d3b
   Banks:
@@ -419,6 +583,36 @@ MonoBehaviour:
   MaxDistance: 0
   Length: 74000
 --- !u!114 &11400000
+=======
+  EditorBanks:
+  - {fileID: -8830047725173797019}
+  - {fileID: 3764173641157073388}
+  EditorEvents:
+  - {fileID: 7683737503516565400}
+  - {fileID: -7673019677415654011}
+  - {fileID: 887239164986645959}
+  - {fileID: 8971851182893064407}
+  - {fileID: -2096130686650506157}
+  - {fileID: 7058971075995790578}
+  - {fileID: 4675080588029925629}
+  - {fileID: 429147614768283942}
+  - {fileID: 4860227483042628505}
+  - {fileID: -2884223634069088948}
+  - {fileID: -1986561750554232120}
+  - {fileID: 7508160062753658429}
+  - {fileID: -8368462015191537521}
+  - {fileID: -1680288984861957528}
+  - {fileID: -4089973458752760268}
+  - {fileID: 2166583848061679927}
+  - {fileID: -236936784518066082}
+  - {fileID: 9050507462242910240}
+  - {fileID: 2202977406947020402}
+  MasterBankRef: {fileID: 3764173641157073388}
+  StringsBankRef: {fileID: -8830047725173797019}
+  stringsBankWriteTime: 636964595676660942
+  cacheVersion: 2
+--- !u!114 &429147614768283942
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -430,6 +624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   EditorBanks:
   - {fileID: 8074022425232475303}
   - {fileID: -6244118098200475036}
@@ -529,6 +724,20 @@ MonoBehaviour:
   MaxDistance: 0
   Length: 162909
 --- !u!114 &4340267070340137705
+=======
+  Path: event:/MainMenu/Scroll
+  guid: 729200d7285ede46aa93f93e14bbbd4c
+  Banks:
+  - {fileID: 3764173641157073388}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 117
+--- !u!114 &887239164986645959
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -540,11 +749,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Name: GamePause
   Min: 0
   Max: 1
   Default: 1
 --- !u!114 &4530222328164702554
+=======
+  Path: event:/MainMenu/MenuSelectBack
+  guid: 2a27c5388de240418b2d2013b304007c
+  Banks:
+  - {fileID: 3764173641157073388}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 362
+--- !u!114 &2166583848061679927
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -559,13 +783,18 @@ MonoBehaviour:
   Path: event:/SFX/Collectables/Notifications
   guid: 3cebe5b06aa2344b8dc576942c77f700
   Banks:
+<<<<<<< HEAD
   - {fileID: -6244118098200475036}
+=======
+  - {fileID: 3764173641157073388}
+>>>>>>> JuriBranch
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+<<<<<<< HEAD
   Length: 1629
 --- !u!114 &4854204644324490575
 MonoBehaviour:
@@ -594,6 +823,10 @@ MonoBehaviour:
   MaxDistance: 0
   Length: 28000
 --- !u!114 &5243370142905557635
+=======
+  Length: 402
+--- !u!114 &2202977406947020402
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -605,18 +838,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Path: event:/SFX/Collectables/Coin
   guid: 6298a5e8176b8a4880a01771acf0722b
   Banks:
   - {fileID: -6244118098200475036}
+=======
+  Path: event:/SFX/SheepSFX/Land
+  guid: fb6abc8685f6cd419323591da49f6040
+  Banks:
+  - {fileID: 3764173641157073388}
+>>>>>>> JuriBranch
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+<<<<<<< HEAD
   Length: 476
 --- !u!114 &6658695768095083080
+=======
+  Length: 166
+--- !u!114 &2549753530797577543
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -625,6 +869,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Victory
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &3764173641157073388
+>>>>>>> JuriBranch
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -640,6 +902,20 @@ MonoBehaviour:
   MaxDistance: 0
   Length: 362
 --- !u!114 &6936215069140441366
+=======
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\GC5\Documents\StraySheep\StraySheep\LambRun\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636964595676630939
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 13636704
+  Exists: 1
+--- !u!114 &4675080588029925629
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -651,18 +927,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Path: event:/MainMenu/MenuSelectBack
   guid: 2a27c5388de240418b2d2013b304007c
   Banks:
   - {fileID: -6244118098200475036}
+=======
+  Path: event:/SFX/Collectables/Coin
+  guid: 6298a5e8176b8a4880a01771acf0722b
+  Banks:
+  - {fileID: 3764173641157073388}
+>>>>>>> JuriBranch
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+<<<<<<< HEAD
   Length: 362
 --- !u!114 &7527816111457769507
+=======
+  Length: 476
+--- !u!114 &4860227483042628505
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -671,6 +959,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -679,6 +968,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
 --- !u!114 &8074022425232475303
+=======
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/SheepSFX/Jump
+  guid: 8acd1c6937daad4d92809c56cef51462
+  Banks:
+  - {fileID: 3764173641157073388}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 388
+--- !u!114 &5633150812700590172
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -690,6 +996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Path: LambRun\Build\Desktop\Master Bank.strings.bank
   lastModified: 636954293725205330
   LoadResult: 0
@@ -698,6 +1005,13 @@ MonoBehaviour:
     Value: 1900
   Exists: 1
 --- !u!114 &8126769683897538039
+=======
+  Name: Speed
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &7058971075995790578
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -709,18 +1023,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Path: event:/SFX/SheepSFX/Jump
   guid: 8acd1c6937daad4d92809c56cef51462
   Banks:
   - {fileID: -6244118098200475036}
+=======
+  Path: event:/SFX/Movement/Jumps/Jumps
+  guid: 4504e4a477a0aa4398d3fda29b18a9af
+  Banks:
+  - {fileID: 3764173641157073388}
+>>>>>>> JuriBranch
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+<<<<<<< HEAD
   Length: 388
 --- !u!114 &9008114065109199981
+=======
+  Length: 1000
+--- !u!114 &7508160062753658429
+>>>>>>> JuriBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -732,18 +1058,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Path: event:/SFX/SheepSFX/Land
   guid: fb6abc8685f6cd419323591da49f6040
   Banks:
   - {fileID: -6244118098200475036}
+=======
+  Path: event:/SFX/Obstacles/GettingHit
+  guid: b8e3b852ae1ec94db7747cc7a493127b
+  Banks:
+  - {fileID: 3764173641157073388}
+>>>>>>> JuriBranch
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+<<<<<<< HEAD
   Length: 166
 --- !u!114 &9174972943931353359
+=======
+  Length: 500
+--- !u!114 &7683737503516565400
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -755,14 +1092,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Path: event:/Music/LevelTheme/LevelThemeViral
+  guid: 098fa851ef5f8d44bf0cdd82e0613235
+  Banks:
+  - {fileID: 3764173641157073388}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -7970414656177347255}
+  - {fileID: 2549753530797577543}
+  - {fileID: -6578677208688061466}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 169200
+--- !u!114 &8971851182893064407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/MainMenu/MainmenuSong
+  guid: 3884a38698a5734d8e669b7b56033a3d
+  Banks:
+  - {fileID: 3764173641157073388}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 162909
+--- !u!114 &9050507462242910240
+>>>>>>> JuriBranch
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Path: event:/SFX/Collectables/Notice
   guid: d22d56ed252f1d4e9ae55e4a90204aa8
   Banks:
   - {fileID: -6244118098200475036}
+=======
+  Path: event:/SFX/Movement/Footsteps/Footsteps
+  guid: f8e01c2302aa4449bcb28b5920be41be
+  Banks:
+  - {fileID: 3764173641157073388}
+>>>>>>> JuriBranch
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+<<<<<<< HEAD
   Length: 402
+=======
+  Length: 218
+>>>>>>> JuriBranch
